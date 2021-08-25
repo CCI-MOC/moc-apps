@@ -5,7 +5,7 @@ metadata:
 spec:
   parallel: true
   nodeSelector:
-    storage-interface: enp4s0f0np1
+    massopen.cloud/storage-interface: enp4s0f0np1
   desiredState:
     interfaces:
       - name: enp4s0f0np1.250
@@ -26,7 +26,7 @@ metadata:
 spec:
   parallel: true
   nodeSelector:
-    storage-interface: ens3f0
+    massopen.cloud/storage-interface: ens3f0
   desiredState:
     interfaces:
       - name: ens3f0.250
@@ -47,7 +47,7 @@ metadata:
 spec:
   parallel: true
   nodeSelector:
-    storage-interface: eno2
+    massopen.cloud/storage-interface: eno2
   desiredState:
     interfaces:
       - name: eno2.250
@@ -68,7 +68,7 @@ metadata:
 spec:
   parallel: true
   nodeSelector:
-    storage-interface: enp4s0f1
+    massopen.cloud/storage-interface: enp4s0f1
   desiredState:
     interfaces:
       - name: enp4s0f1.250
