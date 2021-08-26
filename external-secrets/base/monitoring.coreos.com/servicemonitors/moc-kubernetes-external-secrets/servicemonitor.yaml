@@ -1,0 +1,21 @@
+# Source: kubernetes-external-secrets/templates/servicemonitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+    name: moc-kubernetes-external-secrets
+    labels:
+        app.kubernetes.io/name: kubernetes-external-secrets
+        helm.sh/chart: kubernetes-external-secrets-8.3.0
+        app.kubernetes.io/instance: moc
+        app.kubernetes.io/managed-by: Helm
+spec:
+    endpoints:
+        - interval: 30s
+          port: prometheus
+          path: /metrics
+    namespaceSelector:
+        matchNames:
+            - external-secrets
+    selector:
+        matchLabels:
+            app.kubernetes.io/name: kubernetes-external-secrets
