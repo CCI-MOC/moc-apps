@@ -27,7 +27,7 @@ jobs:
 
       - name: Run linters
         run: |
-          pre-commit run
+          pre-commit run --all-files
 
   run-kustomize:
     runs-on: ubuntu-latest
