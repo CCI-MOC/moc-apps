@@ -5,6 +5,9 @@ resources:
   - ../../base/nmstate.io/nodenetworkstates/nmstate
   - ../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+  - ../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-cephfs
+  - ../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
+  - ../../base/storage.k8s.io/storageclasses/openshift-storage.noobaa.io
   - ../../base/user.openshift.io/groups/cluster-admins/
 
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml

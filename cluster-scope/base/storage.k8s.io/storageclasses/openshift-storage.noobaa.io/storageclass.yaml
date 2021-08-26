@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+    annotations:
+        description: Provides Object Bucket Claims (OBCs)
+        storageclass.kubernetes.io/is-default-class: "false"
+    name: openshift-storage.noobaa.io
+parameters:
+    bucketclass: noobaa-default-bucket-class
+provisioner: openshift-storage.noobaa.io/obc
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
