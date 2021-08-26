@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
+  - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/core/namespaces/openshift-nmstate
   - ../../base/nmstate.io/nodenetworkstates/nmstate
   - ../../base/operators.coreos.com/subscriptions/cert-manager
