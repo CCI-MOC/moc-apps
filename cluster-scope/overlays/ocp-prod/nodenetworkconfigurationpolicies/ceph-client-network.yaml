@@ -1,3 +1,4 @@
+---
 apiVersion: nmstate.io/v1alpha1
 kind: NodeNetworkConfigurationPolicy
 metadata:
@@ -5,15 +6,15 @@ metadata:
 spec:
   parallel: true
   nodeSelector:
-    massopen.cloud/storage-interface: enp4s0f0np1
+    massopen.cloud/storage-interface: enp4s0f1np1
   desiredState:
     interfaces:
-      - name: enp4s0f0np1.250
+      - name: enp4s0f1np1.250
         description: ceph client network
         type: vlan
         state: up
         vlan:
-          base-iface: enp4s0f0np1
+          base-iface: enp4s0f1np1
           id: 250
         ipv4:
           enabled: true
