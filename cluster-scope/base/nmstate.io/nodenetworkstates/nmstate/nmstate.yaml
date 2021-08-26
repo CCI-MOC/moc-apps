@@ -1,0 +1,7 @@
+apiVersion: nmstate.io/v1beta1
+kind: NMState
+metadata:
+  name: nmstate
+spec:
+  nodeSelector:
+  ┆ "kubernetes.io/arch": "amd64"
