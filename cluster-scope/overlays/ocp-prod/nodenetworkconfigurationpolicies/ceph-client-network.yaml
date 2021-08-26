@@ -4,7 +4,6 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: ceph-client-network-enp4s0f0np1
 spec:
-  parallel: true
   nodeSelector:
     massopen.cloud/storage-interface: enp4s0f1np1
   desiredState:
@@ -25,7 +24,6 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: ceph-client-network-ens3f0
 spec:
-  parallel: true
   nodeSelector:
     massopen.cloud/storage-interface: ens3f0
   desiredState:
@@ -46,7 +44,6 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: ceph-client-network-eno2
 spec:
-  parallel: true
   nodeSelector:
     massopen.cloud/storage-interface: eno2
   desiredState:
@@ -67,7 +64,6 @@ kind: NodeNetworkConfigurationPolicy
 metadata:
   name: ceph-client-network-enp4s0f1
 spec:
-  parallel: true
   nodeSelector:
     massopen.cloud/storage-interface: enp4s0f1
   desiredState:
