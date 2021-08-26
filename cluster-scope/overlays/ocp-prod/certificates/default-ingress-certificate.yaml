@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: default-ingress-certificate
+  namespace: openshift-ingress
+spec:
+  issuerRef:
+    name: ingress-letsencrypt-production
+  secretName: default-ingress-certificate
+  duration: 2160h
+  renewBefore: 360h
+  dnsNames:
+    - '*.apps.ocp-prod.massopen.cloud'
