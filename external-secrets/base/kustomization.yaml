@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: external-secrets
+resources:
+- apps/deployments/moc-kubernetes-external-secrets/deployment.yaml
+- core/serviceaccounts/moc-kubernetes-external-secrets/serviceaccount.yaml
+- core/services/moc-kubernetes-external-secrets/service.yaml
+- monitoring.coreos.com/servicemonitors/moc-kubernetes-external-secrets/servicemonitor.yaml
