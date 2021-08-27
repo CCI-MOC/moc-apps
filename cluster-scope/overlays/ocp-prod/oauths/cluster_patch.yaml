@@ -14,7 +14,7 @@ spec:
           - name
           preferredUsername:
           - preferred_username
-        clientID: ocp-prod
+        clientID: moc-openshift-ocp-prod
         clientSecret:
           name: moc-sso-client-secret
         extraScopes: []
