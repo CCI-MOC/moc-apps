@@ -7,7 +7,7 @@ spec:
   issuerRef:
     name: ingress-letsencrypt-production
   secretName: default-ingress-certificate
-  duration: 2160h
-  renewBefore: 360h
+  duration: 2160h0m0s
+  renewBefore: 360h0m0s
   dnsNames:
     - '*.apps.ocp-prod.massopen.cloud'
