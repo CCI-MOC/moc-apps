@@ -12,4 +12,8 @@ resources:
   - ../../base/storage.k8s.io/storageclasses/openshift-storage.noobaa.io
   - ../../base/user.openshift.io/groups/cluster-admins/
 
+  - certificates/default-ingress-certificate.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
+
+patchesStrategicMerge:
+  - groups/cluster-admins.yaml
