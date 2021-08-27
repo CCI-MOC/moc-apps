@@ -14,6 +14,7 @@ resources:
 
   - certificates/default-ingress-certificate.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
+  - ingresscontrollers/default.yaml
 
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
