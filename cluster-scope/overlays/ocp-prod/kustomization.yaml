@@ -4,6 +4,7 @@ resources:
   # please keep each block of items sorted
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
+  - ../../base/config.openshift.io/oauths/cluster
   - ../../base/core/namespaces/openshift-nmstate
   - ../../base/nmstate.io/nodenetworkstates/nmstate
   - ../../base/operators.coreos.com/subscriptions/cert-manager
@@ -26,3 +27,4 @@ resources:
 
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
+  - oauths/cluster_patch.yaml
