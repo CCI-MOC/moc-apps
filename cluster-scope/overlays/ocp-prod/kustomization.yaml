@@ -22,6 +22,7 @@ resources:
   - ../../base/rbac.authorization.k8s.io/clusterroles/moc-kubernetes-external-secrets
 
   - certificates/default-ingress-certificate.yaml
+  - externalsecrets/aws-route53-secret.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
   - ingresscontrollers/default.yaml
 
