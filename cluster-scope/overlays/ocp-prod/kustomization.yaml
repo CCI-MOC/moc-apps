@@ -8,6 +8,7 @@ resources:
   - ../../base/core/namespaces/openshift-nmstate
   - ../../base/nmstate.io/nodenetworkstates/nmstate
   - ../../base/operators.coreos.com/subscriptions/cert-manager
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
   - ../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-cephfs
   - ../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
