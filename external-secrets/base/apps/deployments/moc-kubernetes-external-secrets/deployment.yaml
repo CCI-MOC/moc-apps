@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: moc-kubernetes-external-secrets
-  namespace: external-secrets
   labels:
     app.kubernetes.io/name: kubernetes-external-secrets
     helm.sh/chart: kubernetes-external-secrets-8.3.0
