@@ -33,3 +33,4 @@ resources:
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
   - oauths/cluster_patch.yaml
+  - subscriptions/openshift-nfd_patch.yaml

@@ -1,0 +1,9 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: nfd
+  namespace: openshift-nfd
+spec:
+  # As of 2021-08-31, latest nfd version is 4.8
+  channel: "4.8"
