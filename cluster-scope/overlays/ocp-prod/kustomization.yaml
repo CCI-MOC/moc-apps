@@ -5,6 +5,7 @@ resources:
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../base/core/namespaces/gpu-operator-resources/
   - ../../base/core/namespaces/openshift-nfd
   - ../../base/core/namespaces/openshift-nmstate
   - ../../base/nmstate.io/nodenetworkstates/nmstate
