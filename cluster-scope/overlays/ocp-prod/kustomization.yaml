@@ -5,6 +5,7 @@ resources:
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../base/core/namespaces/metallb-system/
   - ../../base/core/namespaces/gpu-operator-resources/
   - ../../base/core/namespaces/openshift-nfd
   - ../../base/core/namespaces/openshift-nmstate
@@ -19,6 +20,13 @@ resources:
   - ../../base/storage.k8s.io/storageclasses/openshift-storage.noobaa.io
   - ../../base/user.openshift.io/groups/cluster-admins/
 
+  # metallb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/metallb-allow-privileged/
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/metallb-system:controller/
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/metallb-system:speaker/
+  - ../../base/rbac.authorization.k8s.io/clusterroles/metallb-system:controller/
+  - ../../base/rbac.authorization.k8s.io/clusterroles/metallb-system:speaker/
+
   # external secrets
   - ../../base/apiextensions.k8s.io/customresourcedefinitions/externalsecrets.kubernetes-client.io
   - ../../base/core/namespaces/external-secrets
@@ -28,6 +36,7 @@ resources:
 
   - certificates/default-ingress-certificate.yaml
   - externalsecrets/aws-route53-secret.yaml
+  - externalsecrets/metallb-memberlist-secret.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
   - ingresscontrollers/default.yaml
