@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-secrets
+spec:
+  destination:
+    name: ocp-prod
+  project: mocops
+  source:
+    path: external-secrets/overlays/ocp-prod
+    repoURL: https://github.com/CCI-MOC/moc-apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true
