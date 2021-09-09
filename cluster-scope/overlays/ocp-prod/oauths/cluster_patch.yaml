@@ -5,7 +5,7 @@ metadata:
 spec:
   identityProviders:
     - mappingMethod: claim
-      name: moc-sso
+      name: moc
       openID:
         claims:
           email:
@@ -16,7 +16,23 @@ spec:
           - preferred_username
         clientID: moc-openshift-ocp-prod
         clientSecret:
-          name: moc-sso-client-secret
+          name: sso-clientsecret-moc
         extraScopes: []
         issuer: https://sso.massopen.cloud/auth/realms/moc
+      type: OpenID
+    - mappingMethod: claim
+      name: moc-testing
+      openID:
+        claims:
+          email:
+            - email
+          name:
+            - name
+          preferredUsername:
+            - preferred_username
+        clientID: moc-openshift-ocp-prod
+        clientSecret:
+          name: sso-clientsecret-moc-testing
+        extraScopes: []
+        issuer: https://sso.massopen.cloud/auth/realms/moc-testing
       type: OpenID

@@ -28,7 +28,8 @@ resources:
 
   - certificates/default-ingress-certificate.yaml
   - externalsecrets/aws-route53-secret.yaml
-  - externalsecrets/moc-sso-client-secret.yaml
+  - externalsecrets/sso-clientsecret-moc.yaml
+  - externalsecrets/sso-clientsecret-moc-testing.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
   - ingresscontrollers/default.yaml
