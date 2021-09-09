@@ -5,6 +5,7 @@ metadata:
 spec:
   destination:
     name: ocp-prod
+    namespace: open-cluster-management-agent
   project: mocops
   source:
     path: external-secrets/overlays/ocp-prod
