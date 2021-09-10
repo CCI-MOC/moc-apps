@@ -1,0 +1,54 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    openshift.io/description: A role that can create new projects.
+  name: project-maker
+rules:
+  - apiGroups:
+      - ''
+      - user.openshift.io
+    resources:
+      - groups
+    verbs:
+      - get
+      - list
+      - create
+      - patch
+  - apiGroups:
+      - ''
+      - project.openshift.io
+    resources:
+      - projects
+      - namespaces
+    verbs:
+      - get
+      - list
+      - create
+      - patch
+  - apiGroups:
+      - ''
+    resources:
+      - limitranges
+      - resourcequotas
+    verbs:
+      - get
+      - list
+      - create
+      - patch
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - rolebindings
+    verbs:
+      - get
+      - list
+      - create
+      - patch
+  - apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - clusterroles
+    verbs:
+      - escalate
+      - bind

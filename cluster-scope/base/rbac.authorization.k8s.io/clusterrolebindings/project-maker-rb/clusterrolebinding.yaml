@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+    name: project-maker-rb
+roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: project-maker
+subjects:
+    - kind: ServiceAccount
+      namespace: moc-projects
+      name: moc-project-maker
