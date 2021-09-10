@@ -4,5 +4,6 @@ namespace: argocd
 resources:
 - cluster-scope
 - external-secrets
+- moc-projects
 
 nameSuffix: -ocp-prod

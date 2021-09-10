@@ -7,10 +7,9 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: moc-project-maker
           containers:
             - name: moc-projects
-              image: quay.io/larsks/moc-project-tool:d3dcc26
+              image: quay.io/larsks/moc-project-tool:ed34f0b
               volumeMounts:
                 - name: moc-project-key
                   mountPath: /secret
