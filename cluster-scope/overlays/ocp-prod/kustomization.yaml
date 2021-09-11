@@ -29,11 +29,13 @@ resources:
 
   - certificates/default-ingress-certificate.yaml
   - externalsecrets/aws-route53-secret.yaml
-  - externalsecrets/sso-clientsecret-moc.yaml
   - externalsecrets/sso-clientsecret-moc-testing.yaml
+  - externalsecrets/sso-clientsecret-moc.yaml
+  - ingresscontrollers/default.yaml
+  - machineconfigs/99-master-ssh.yaml
+  - machineconfigs/99-worker-ssh.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
-  - ingresscontrollers/default.yaml
 
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
