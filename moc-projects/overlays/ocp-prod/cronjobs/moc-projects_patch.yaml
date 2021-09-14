@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: moc-projects
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: moc-projects
+              image: quay.io/larsks/moc-project-tool:ed34f0b
+              volumeMounts:
+                - name: moc-project-key
+                  mountPath: /secret
+              envFrom:
+                - configMapRef:
+                    name: moc-project-config
+          volumes:
+            - name: moc-project-key
+              secret:
+                secretName: moc-projects-private-key
+                defaultMode: 0400

@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+  - externalsecret.yaml
+
+configMapGenerator:
+  - name: moc-project-config
+    envs:
+      - config.env
+
+patches:
+  - path: cronjobs/moc-projects_patch.yaml
