@@ -11,4 +11,9 @@ configMapGenerator:
       - config.env
 
 patches:
-  - path: cronjobs/moc-projects_patch.yaml
+  - target:
+      group: batch
+      version: v1
+      kind: CronJob
+      name: moc-projects
+    path: cronjobs/moc-projects_patch.yaml
