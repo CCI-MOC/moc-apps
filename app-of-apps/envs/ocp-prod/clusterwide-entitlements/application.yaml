@@ -9,7 +9,7 @@ spec:
   project: mocops
   source:
     path: .
-    repoURL: git@github.com:CCI-MOC/ocp-prod-clusterwide-entitlements.git
+    repoURL: ssh://git@github.com/CCI-MOC/ocp-prod-clusterwide-entitlements.git
     targetRevision: HEAD
   syncPolicy:
     automated:
