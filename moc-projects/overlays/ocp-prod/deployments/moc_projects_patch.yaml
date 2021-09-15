@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moc-projects
+spec:
+  template:
+    spec:
+      containers:
+        - name: moc-projects
+          image: quay.io/larsks/moc-project-tool:d50d1c6
+          envFrom:
+            - configMapRef:
+                name: moc-project-config
+          volumeMounts:
+            - name: moc-project-key
+              mountPath: /secret
+      volumes:
+        - name: moc-project-key
+          secret:
+            secretName: moc-projects-private-key
+            defaultMode: 0400

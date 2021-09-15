@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moc-projects
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      serviceAccountName: moc-project-maker
+      containers:
+        - name: moc-projects
+          image: quay.io/larsks/moc-project-tool:latest
+          volumeMounts:
+            - name: moc-project-data
+              mountPath: /data
+            - name: ansible-tmp
+              mountPath: /.ansible
+          env:
+            - name: ANSIBLE_LOCAL_TMP
+              value: /tmp
+            - name: RUNNER_ARTIFACT_DIR
+              value: /data/artifacts
+      volumes:
+        - name: moc-project-data
+          persistentVolumeClaim:
+            claimName: moc-project-data
+        - name: ansible-tmp
+          emptyDir: {}

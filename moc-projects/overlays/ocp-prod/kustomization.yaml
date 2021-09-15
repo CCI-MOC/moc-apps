@@ -11,4 +11,4 @@ configMapGenerator:
       - config.env
 
 patches:
-  - path: cronjobs/moc-projects_patch.yaml
+  - path: deployments/moc_projects_patch.yaml
