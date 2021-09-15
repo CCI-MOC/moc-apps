@@ -5,5 +5,6 @@ resources:
 - cluster-scope
 - external-secrets
 - moc-projects
+- clusterwide-entitlements
 
 nameSuffix: -ocp-prod

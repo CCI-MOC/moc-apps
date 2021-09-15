@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: clusterwide-entitlements
+spec:
+  destination:
+    name: ocp-prod
+    namespace: open-cluster-management-agent
+  project: mocops
+  source:
+    path: .
+    repoURL: git@github.com:CCI-MOC/ocp-prod-clusterwide-entitlements.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true
