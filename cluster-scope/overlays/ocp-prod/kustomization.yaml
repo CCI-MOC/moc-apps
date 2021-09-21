@@ -1,10 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # please keep each block of items sorted
+  # please keep these items sorted
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/externalsecrets.kubernetes-client.io
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../base/core/namespaces/external-secrets
   - ../../base/core/namespaces/gpu-operator-resources
   - ../../base/core/namespaces/moc-projects
   - ../../base/core/namespaces/openshift-nfd
@@ -15,20 +17,16 @@ resources:
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
   - ../../base/operators.coreos.com/subscriptions/openshift-nfd
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-kubernetes-external-secrets
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-kubernetes-external-secrets-auth
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/project-maker-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+  - ../../base/rbac.authorization.k8s.io/clusterroles/moc-kubernetes-external-secrets
   - ../../base/rbac.authorization.k8s.io/clusterroles/project-maker
   - ../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-cephfs
   - ../../base/storage.k8s.io/storageclasses/ocs-external-storagecluster-ceph-rbd
   - ../../base/storage.k8s.io/storageclasses/openshift-storage.noobaa.io
   - ../../base/user.openshift.io/groups/cluster-admins
-
-  # external secrets
-  - ../../base/apiextensions.k8s.io/customresourcedefinitions/externalsecrets.kubernetes-client.io
-  - ../../base/core/namespaces/external-secrets
-  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-kubernetes-external-secrets
-  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-kubernetes-external-secrets-auth
-  - ../../base/rbac.authorization.k8s.io/clusterroles/moc-kubernetes-external-secrets
 
   - certificates/default-ingress-certificate.yaml
   - externalsecrets/aws-route53-secret.yaml
