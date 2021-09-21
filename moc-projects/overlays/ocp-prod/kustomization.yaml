@@ -12,3 +12,7 @@ configMapGenerator:
 
 patches:
   - path: deployments/moc_projects_patch.yaml
+
+images:
+  - name: quay.io/larsks/moc-project-tool:latest
+    newTag: 96d8bd8

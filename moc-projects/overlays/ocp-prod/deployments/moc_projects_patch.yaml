@@ -7,7 +7,6 @@ spec:
     spec:
       containers:
         - name: moc-projects
-          image: quay.io/larsks/moc-project-tool:96d8bd8
           envFrom:
             - configMapRef:
                 name: moc-project-config
