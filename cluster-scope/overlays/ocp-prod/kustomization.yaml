@@ -15,6 +15,8 @@ resources:
   - ../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
+  - ../../base/operators.coreos.com/subscriptions/kubernetes-nmstate-operator
+  - ../../base/operators.coreos.com/subscriptions/ocs-operator
   - ../../base/operators.coreos.com/subscriptions/openshift-nfd
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-kubernetes-external-secrets
