@@ -2,14 +2,17 @@
 
 OPT_REVISION='HEAD^'
 
-while getopts r: ch; do
-    case "$1" in
-        (-r)    OPT_REVISION=$OPTARG
+while getopts fr: ch; do
+    case "$ch" in
+        (r)     OPT_REVISION=$OPTARG
                 ;;
 
+        (f)     OPT_FORCE=1
+        ;;
+
         (\?)    echo "ERROR: unknown optoin: $1" >&2
-               exit 2
-               ;;
+                exit 2
+                ;;
     esac
 done
 shift $(( OPTIND - 1 ))
@@ -27,7 +30,7 @@ if ! [[ -d "$overlay" ]]; then
     exit 1
 fi
 
-if ! git diff-index --quiet HEAD; then
+if [[ -z $OPT_FORCE ]] && ! git diff-index --quiet HEAD; then
     echo "ERROR: please commit your changes first." >&2
     exit 1
 fi
