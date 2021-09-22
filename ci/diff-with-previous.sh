@@ -1,10 +1,10 @@
 #!/bin/bash
 
-OPT_REVISION='HEAD^'
+OPT_BASE_REF='HEAD^'
 
 while getopts fr: ch; do
     case "$ch" in
-        (r)     OPT_REVISION=$OPTARG
+        (r)     OPT_BASE_REF=$OPTARG
                 ;;
 
         (f)     OPT_FORCE=1
@@ -41,9 +41,9 @@ workdir=$(mktemp -d tmp.kustomizeXXXXXX)
 trap "rm -rf $workdir" EXIT
 
 mkdir -p $workdir/prev $workdir/head
-git archive "${OPT_REVISION}" | tar -C $workdir/prev -xf -
+git archive "${OPT_BASE_REF}" | tar -C $workdir/prev -xf -
 git archive HEAD | tar -C $workdir/head -xf -
 
 diff -u \
-    <(cd $workdir/prev/${overlay} && kustomize build) \
-    <(cd $workdir/head/${overlay} && kustomize build)
+    <(kustomize build $workdir/prev/${overlay}) \
+    <(kustomize build $workdir/head/${overlay})

@@ -34,6 +34,7 @@ jobs:
     needs: run-linters
     env:
       KUSTOMIZE_VERSION: 4.3.0
+      TERM: xterm-256color
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -59,3 +60,8 @@ jobs:
       - name: Run kustomize build
         run: |
           ./ci/run-kustomize-build.sh
+
+      - name: Diff with target
+        run: |
+          git fetch origin $GITHUB_BASE_REF:$GITHUB_BASE_REF
+          ./ci/diff-all-with-previous.sh -r $GITHUB_BASE_REF
