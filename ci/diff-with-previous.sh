@@ -1,15 +1,18 @@
 #!/bin/bash
 
-OPT_REVISION='HEAD^'
+OPT_BASE_REF='HEAD^'
 
-while getopts r: ch; do
-    case "$1" in
-        (-r)    OPT_REVISION=$OPTARG
+while getopts fr: ch; do
+    case "$ch" in
+        (r)     OPT_BASE_REF=$OPTARG
                 ;;
 
+        (f)     OPT_FORCE=1
+        ;;
+
         (\?)    echo "ERROR: unknown optoin: $1" >&2
-               exit 2
-               ;;
+                exit 2
+                ;;
     esac
 done
 shift $(( OPTIND - 1 ))
@@ -27,7 +30,7 @@ if ! [[ -d "$overlay" ]]; then
     exit 1
 fi
 
-if ! git diff-index --quiet HEAD; then
+if [[ -z $OPT_FORCE ]] && ! git diff-index --quiet HEAD; then
     echo "ERROR: please commit your changes first." >&2
     exit 1
 fi
@@ -38,9 +41,9 @@ workdir=$(mktemp -d tmp.kustomizeXXXXXX)
 trap "rm -rf $workdir" EXIT
 
 mkdir -p $workdir/prev $workdir/head
-git archive "${OPT_REVISION}" | tar -C $workdir/prev -xf -
+git archive "${OPT_BASE_REF}" | tar -C $workdir/prev -xf -
 git archive HEAD | tar -C $workdir/head -xf -
 
 diff -u \
-    <(cd $workdir/prev/${overlay} && kustomize build) \
-    <(cd $workdir/head/${overlay} && kustomize build)
+    <(kustomize build $workdir/prev/${overlay}) \
+    <(kustomize build $workdir/head/${overlay})

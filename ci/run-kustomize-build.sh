@@ -1,12 +1,28 @@
 #!/bin/bash
 
 find_overlays() {
-    find . -type f -regex '.*/overlays/.*/kustomization.yaml' -printf '%h\n'
+    find * -type f -regex '.*/overlays/.*/kustomization.yaml' -printf '%h\n'
 }
 
+cat <<EOF
+##
+## Verify that 'kustomize build' runs without errors
+## for all overlays.
+##
+
+EOF
+
+tmpfile=$(mktemp buildXXXXXX)
+trap "rm -f $tmpfile" EXIT
+
 for overlay in $(find_overlays); do
-    pushd $overlay > /dev/null
-    echo "Running kustomize in $overlay..."
-    kustomize build > /dev/null || exit 1
-    popd > /dev/null
+    echo -n "$overlay..."
+    if kustomize build $overlay > /dev/null 2> $tmpfile; then
+        echo "$(tput setaf 2)ok$(tput sgr0)"
+    else
+        echo "$(tput setaf 1)failed$(tput sgr0)"
+    echo
+        cat $tmpfile
+        exit 1
+    fi
 done
