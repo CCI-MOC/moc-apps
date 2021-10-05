@@ -15,6 +15,7 @@ resources:
   - ../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../base/nmstate.io/nodenetworkstates/nmstate
+  - ../../base/nvidia.com/clusterpolicy/gpu-cluster-policy
   - ../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
