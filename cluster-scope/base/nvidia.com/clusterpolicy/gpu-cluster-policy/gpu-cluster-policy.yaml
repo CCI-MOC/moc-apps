@@ -60,7 +60,6 @@ spec:
     securityContext: {}
     tolerations: []
     version: 'sha256:bfc39d23568458dfd50c0c5323b6d42bdcd038c420fb2a2becd513a3ed3be27f'
-    sleepInterval: 60s
   operator:
     defaultRuntime: crio
     validator:
@@ -68,7 +67,6 @@ spec:
       imagePullSecrets: []
       repository: nvcr.io/nvidia/k8s
       version: 'sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2'
-    deployGFD: true
   toolkit:
     affinity: {}
     image: container-toolkit
