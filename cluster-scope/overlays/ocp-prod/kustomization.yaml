@@ -8,6 +8,7 @@ resources:
   - ../../base/core/namespaces/cs6620-fall21-deployverticalpod
   - ../../base/core/namespaces/gpu-operator-resources
   - ../../base/core/namespaces/moc-projects
+  - ../../base/core/namespaces/netbox
   - ../../base/core/namespaces/openshift-nfd
   - ../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../base/imageregistry.operator.openshift.io/configs/cluster

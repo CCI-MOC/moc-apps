@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netbox
+spec:
+  template:
+    spec:
+      containers:
+        - name: netbox
+          envFrom: &envFrom
+            - secretRef:
+                name: netbox-secret
+          volumeMounts: &volumeMounts
+            - name: netbox-config
+              mountPath: /etc/netbox/config/extra.py
+              subPath: extra.py
+        - name: netbox-worker
+          envFrom: *envFrom
+          volumeMounts: *volumeMounts
+        - name: netbox-housekeeping
+          envFrom: *envFrom
+          volumeMounts: *volumeMounts
+      volumes:
+        - name: netbox-config
+          configMap:
+            name: netbox-config

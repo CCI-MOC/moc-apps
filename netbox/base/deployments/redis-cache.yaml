@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-cache
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        component: redis-cache
+    spec:
+      containers:
+        - name: redis-cache
+          image: docker.io/redis:6-alpine
+          ports:
+            - containerPort: 6379
+              name: redis-cache
+          volumeMounts:
+            - mountPath: /data
+              name: redis-cache-data
+      volumes:
+        - name: redis-cache-data
+          persistentVolumeClaim:
+            claimName: redis-cache-data
