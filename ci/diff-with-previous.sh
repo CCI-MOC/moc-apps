@@ -25,17 +25,10 @@ fi
 overlay=$1
 shift
 
-if ! [[ -d "$overlay" ]]; then
-    echo "ERROR: overlay $overlay does not exist" >&2
-    exit 1
-fi
-
 if [[ -z $OPT_FORCE ]] && ! git diff-index --quiet HEAD; then
     echo "ERROR: please commit your changes first." >&2
     exit 1
 fi
-
-set -e
 
 workdir=$(mktemp -d tmp.kustomizeXXXXXX)
 trap "rm -rf $workdir" EXIT
@@ -45,5 +38,7 @@ git archive "${OPT_BASE_REF}" | tar -C $workdir/prev -xf -
 git archive HEAD | tar -C $workdir/head -xf -
 
 diff -u \
-    <(kustomize build $workdir/prev/${overlay}) \
-    <(kustomize build $workdir/head/${overlay})
+    <([[ -d ${workdir}/prev/${overlay} ]] && kustomize build $workdir/prev/${overlay}) \
+    <([[ -d ${workdir}/head/${overlay} ]] && kustomize build $workdir/head/${overlay})
+
+exit 0
