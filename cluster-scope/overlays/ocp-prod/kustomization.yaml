@@ -5,16 +5,20 @@ resources:
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
   - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../base/core/namespaces/cs6620-fall21-deployverticalpod
   - ../../base/core/namespaces/gpu-operator-resources
   - ../../base/core/namespaces/moc-projects
   - ../../base/core/namespaces/openshift-nfd
+  - ../../base/core/namespaces/openshift-vertical-pod-autoscaler
   - ../../base/core/persistentvolumeclaims/image-registry-storage
   - ../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../base/nvidia.com/clusterpolicy/gpu-cluster-policy
   - ../../base/operators.coreos.com/operatorgroups/openshift-nfd
+  - ../../base/operators.coreos.com/operatorgroups/openshift-vertical-pod-autoscaler
   - ../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
   - ../../base/operators.coreos.com/subscriptions/openshift-nfd
+  - ../../base/operators.coreos.com/subscriptions/vertical-pod-autoscaler
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/project-maker-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
