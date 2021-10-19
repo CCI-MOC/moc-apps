@@ -1,0 +1,10 @@
+apiVersion: "kubernetes-client.io/v1"
+kind: ExternalSecret
+metadata:
+  name: alertmanager-main
+  namespace: openshift-monitoring
+spec:
+  backendType: secretsManager
+  data:
+    - key: cluster/ocp-prod/openshift-monitoring/alertmanager-main
+      name: alertmanager.yaml
