@@ -37,6 +37,15 @@ resources:
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
 
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: cluster-monitoring-config
+    namespace: openshift-monitoring
+    files:
+      - config.yaml=configmaps/cluster-monitoring-config.yaml
+
 patchesStrategicMerge:
   - groups/cluster-admins.yaml
   - oauths/cluster_patch.yaml
