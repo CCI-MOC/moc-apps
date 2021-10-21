@@ -1,0 +1,10 @@
+apiVersion: "kubernetes-client.io/v1"
+kind: ExternalSecret
+metadata:
+  name: rook-ceph-external-cluster-details
+  namespace: openshift-storage
+spec:
+  backendType: secretsManager
+  data:
+    - key: cluster/ocp-prod/openshift-storage/rook-ceph-external-cluster-details
+      name: external_cluster_details
