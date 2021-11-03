@@ -5,15 +5,12 @@ commonLabels:
   app: netbox
 
 resources:
-  - deployments/postgres.yaml
   - deployments/redis-cache.yaml
   - deployments/redis.yaml
   - deployments/netbox.yaml
-  - persistenvolumeclaims/postgres-data.yaml
   - persistenvolumeclaims/redis-cache-data.yaml
   - persistenvolumeclaims/redis-data.yaml
   - services/netbox.yaml
-  - services/postgres.yaml
   - services/redis-cache.yaml
   - services/redis.yaml
   - routes.yaml

@@ -20,12 +20,6 @@ spec:
         - name: netbox
           image: netbox
           env: &env
-            - name: DB_NAME
-              value: "netbox"
-            - name: DB_USER
-              value: "netbox"
-            - name: DB_HOST
-              value: "postgres"
             - name: REDIS_HOST
               value: "redis"
             - name: REDIS_CACHE_HOST

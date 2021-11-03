@@ -22,7 +22,6 @@ configMapGenerator:
 patches:
   - path: deployments/netbox_oauth_patch.yaml
   - path: deployments/netbox_config_patch.yaml
-  - path: deployments/postgres_config_patch.yaml
   - path: routes/netbox_patch.yaml
 
 images:
