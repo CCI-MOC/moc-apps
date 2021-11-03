@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netbox
+  labels:
+    component: netbox
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      component: netbox
+  template:
+    metadata:
+      labels:
+        component: netbox
+    spec:
+      containers:
+        - name: netbox
+          image: netbox
+          env: &env
+            - name: DB_NAME
+              value: "netbox"
+            - name: DB_USER
+              value: "netbox"
+            - name: DB_HOST
+              value: "postgres"
+            - name: REDIS_HOST
+              value: "redis"
+            - name: REDIS_CACHE_HOST
+              value: "redis-cache"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: REDIS_CACHE_PORT
+              value: "6379"
+          ports:
+            - containerPort: 8080
+              name: netbox
+          startupProbe:
+            httpGet:
+              port: netbox
+              path: /
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              port: netbox
+              path: /
+            initialDelaySeconds: 1
+            periodSeconds: 10
+        - name: netbox-worker
+          image: netbox
+          command:
+            - /opt/netbox/venv/bin/python3
+            - /opt/netbox/netbox/manage.py
+            - rqworker
+          env: *env
+        - name: netbox-housekeeping
+          image: netbox
+          command:
+            - /opt/netbox/housekeeping.sh
+          env: *env
