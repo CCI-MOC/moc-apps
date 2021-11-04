@@ -2,8 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # please keep these items sorted
-  - ../../base/cert-manager.io/issuers/ingress-letsencrypt-production
-  - ../../base/cert-manager.io/issuers/ingress-letsencrypt-staging
   - ../../base/config.openshift.io/oauths/cluster
   - ../../base/core/namespaces/cs6620-fall21-deployverticalpod
   - ../../base/core/namespaces/gpu-operator-resources
@@ -14,7 +12,6 @@ resources:
   - ../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../base/nvidia.com/clusterpolicy/gpu-cluster-policy
   - ../../base/operators.coreos.com/operatorgroups/openshift-nfd
-  - ../../base/operators.coreos.com/subscriptions/cert-manager
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
   - ../../base/operators.coreos.com/subscriptions/openshift-nfd
@@ -24,6 +21,7 @@ resources:
   - ../../base/rbac.authorization.k8s.io/clusterroles/project-maker
   - ../../base/user.openshift.io/groups/cluster-admins
 
+  - ../../bundles/cert-manager
   - ../../bundles/external-secrets
   - ../../bundles/nmstate
   - ../../bundles/ocs
