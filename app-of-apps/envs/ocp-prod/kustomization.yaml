@@ -3,8 +3,9 @@ kind: Kustomization
 namespace: argocd
 resources:
 - cluster-scope
+- clusterwide-entitlements
 - external-secrets
 - moc-projects
-- clusterwide-entitlements
+- netbox
 
 nameSuffix: -ocp-prod
