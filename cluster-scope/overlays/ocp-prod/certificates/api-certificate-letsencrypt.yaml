@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-certificate-letsencrypt
+  namespace: openshift-config
+spec:
+  issuerRef:
+    name: letsencrypt-production-dns01
+    kind: ClusterIssuer
+  secretName: api-certificate-letsencrypt
+  duration: 2160h0m0s
+  renewBefore: 360h0m0s
+  dnsNames:
+    - 'api.ocp-prod.massopen.cloud'

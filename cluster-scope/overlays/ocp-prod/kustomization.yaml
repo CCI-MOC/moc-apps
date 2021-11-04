@@ -27,6 +27,8 @@ resources:
   - ../../bundles/ocs
   - ../../bundles/vertical-pod-autoscaler
 
+  - apiservers/cluster.yaml
+  - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
   - clusterversions/version.yaml
   - externalsecrets/aws-route53-secret.yaml
