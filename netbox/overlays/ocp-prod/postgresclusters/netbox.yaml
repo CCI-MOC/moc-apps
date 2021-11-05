@@ -33,7 +33,7 @@ spec:
       - name: repo1
         schedules:
           full: '0 1 * * *'
-          incr: '0 */4 * * *'
+          incremental: '0 */4 * * *'
         volume:
           volumeClaimSpec:
             accessModes:
