@@ -8,8 +8,9 @@ resources:
   - ../../base
   - externalsecrets/netbox-secret.yaml
   - externalsecrets/oauth2-secret.yaml
-  - services/netbox-auth.yaml
+  - postgresclusters/netbox.yaml
   - routes/netbox-api.yaml
+  - services/netbox-auth.yaml
 
 configMapGenerator:
   - name: netbox-config
