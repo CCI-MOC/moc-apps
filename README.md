@@ -30,13 +30,26 @@ pre-commit install
 ### Pre-push checks
 
 There are some checks we may not want to run for each commit, but we
-do want to run before pushing changes up to GitHub.  Place the
-following in `.git/hooks/pre-push`:
+do want to run before pushing changes up to GitHub.  First, make sure
+you have the [openshift-schemas][] repository checked out:
+
+[openshift-schemas]: https://github.com/CCI-MOC/openshift-schemas
+
+```
+git -C .. clone https://github.com/cci-moc/openshift-schemas
+```
+
+And make sure [kubeval][] is somewhere in your path.
+
+[kubeval]: https://github.com/instrumenta/kubeval
+
+Then place the following in `.git/hooks/pre-push` in your local
+checkout of the `moc-apps` repository:
 
 ```
 #!/bin/sh
 
-./ci/run-kustomize-build.sh
+./ci/validate-manifests.sh -s ../openshift-schemas/schemas
 ```
 
 Ensure the file is executable:
@@ -45,4 +58,5 @@ Ensure the file is executable:
 chmod 755 .git/hooks/pre-push
 ```
 
-This will run `kustomize build` on all overlays prior to each push.
+This will run `kustomize build` on all overlays and validate the
+output using `kubeval` prior to each push.
