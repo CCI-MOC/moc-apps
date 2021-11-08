@@ -8,3 +8,18 @@ resources:
 
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
+  - ../../bundles/cert-manager
+
+patches:
+  - path: clusterissuers/patch.yaml
+    target:
+      kind: ClusterIssuer
+      name: letsencrypt-production-dns01
+  - path: clusterissuers/patch.yaml
+    target:
+      kind: Issuer
+      name: ingress-letsencrypt-staging
+  - path: clusterissuers/patch.yaml
+    target:
+      kind: Issuer
+      name: ingress-letsencrypt-production
