@@ -2,9 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../base/core/namespaces/node-labeler/
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
+  - ../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
   - ../../bundles/cert-manager
   - ../../bundles/external-secrets
-
   - apiservers/cluster.yaml
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
