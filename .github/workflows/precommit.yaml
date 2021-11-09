@@ -43,13 +43,9 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Check out schemas
-        run:
-          git clone --depth 1 https://github.com/cci-moc/openshift-schemas
-
       - name: Run validations
         run: |
-          ./ci/validate-manifests.sh -i -v -s openshift-schemas/schemas
+          ./ci/validate-manifests.sh
 
       - name: Diff with target
         run: |

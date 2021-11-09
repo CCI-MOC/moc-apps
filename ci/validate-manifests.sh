@@ -3,6 +3,7 @@
 : ${KUSTOMIZE:=kustomize}
 : ${KUBEVAL:=kubeval}
 : ${CONFTEST:=conftest}
+: ${SCHEMA_LOCATION:=https://raw.githubusercontent.com/CCI-MOC/openshift-schemas/master/schemas/}
 
 find_overlays() {
     find * -type f -regex '.*/overlays/.*/kustomization.yaml' -printf '%h\n'
@@ -21,9 +22,6 @@ fail() {
 
 while getopts vis: ch; do
     case $ch in
-        (v) VALIDATE=1
-            ;;
-
         (i) IGNORE_MISSING_SCHEMAS=1
             ;;
 
@@ -48,7 +46,7 @@ for overlay in $(find_overlays); do
 
     if $KUBEVAL --strict \
         ${IGNORE_MISSING_SCHEMAS:+--ignore-missing-schemas} \
-        ${SCHEMA_LOCATION:+--additional-schema-locations file://$SCHEMA_LOCATION} \
+        ${SCHEMA_LOCATION:+--additional-schema-locations $SCHEMA_LOCATION} \
             $tmpdir/manifests.yaml > $tmpdir/stdout 2> $tmpdir/stderr; then
         okay schema
     else

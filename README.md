@@ -49,7 +49,7 @@ checkout of the `moc-apps` repository:
 ```
 #!/bin/sh
 
-./ci/validate-manifests.sh -s ../openshift-schemas/schemas
+./ci/validate-manifests.sh
 ```
 
 Ensure the file is executable:
