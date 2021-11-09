@@ -3,8 +3,19 @@ kind: Kustomization
 resources:
   # please keep these items sorted
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../bundles/cert-manager
   - ../../bundles/external-secrets
+
+  - apiservers/cluster.yaml
+  - certificates/api-certificate-letsencrypt.yaml
+  - certificates/default-ingress-certificate.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
 
 patchesStrategicMerge:
   - oauths/cluster_patch.yaml
+
+patches:
+  - path: clusterissuers/letsencrypt-production-dns01_patch.yaml
+    target:
+      kind: ClusterIssuer
+      name: letsencrypt-production-dns01
