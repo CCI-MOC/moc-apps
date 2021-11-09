@@ -1,5 +1,7 @@
 #!/bin/bash
 
+: ${KUSTOMIZE:=kustomize}
+
 OPT_BASE_REF='HEAD^'
 
 while getopts fr: ch; do
@@ -38,7 +40,7 @@ git archive "${OPT_BASE_REF}" | tar -C $workdir/prev -xf -
 git archive HEAD | tar -C $workdir/head -xf -
 
 diff -u \
-    <([[ -d ${workdir}/prev/${overlay} ]] && kustomize build $workdir/prev/${overlay}) \
-    <([[ -d ${workdir}/head/${overlay} ]] && kustomize build $workdir/head/${overlay})
+    <([[ -d ${workdir}/prev/${overlay} ]] && $KUSTOMIZE build $workdir/prev/${overlay}) \
+    <([[ -d ${workdir}/head/${overlay} ]] && $KUSTOMIZE build $workdir/head/${overlay})
 
 exit 0
