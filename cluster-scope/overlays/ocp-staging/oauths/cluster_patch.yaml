@@ -16,7 +16,7 @@ spec:
           - preferred_username
         clientID: moc-openshift-ocp-staging
         clientSecret:
-          name: moc-sso-client-secret
+          name: sso-clientsecret-moc
         extraScopes: []
         issuer: https://sso.massopen.cloud/auth/realms/moc
       type: OpenID
