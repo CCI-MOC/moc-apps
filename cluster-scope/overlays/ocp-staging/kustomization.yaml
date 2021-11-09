@@ -3,8 +3,11 @@ kind: Kustomization
 resources:
   - ../../base/config.openshift.io/oauths/cluster
   - ../../base/core/namespaces/node-labeler/
-  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
   - ../../base/rbac.authorization.k8s.io/clusterroles/node-labeler
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/node-labeler
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
+  - ../../base/user.openshift.io/groups/cluster-admins
   - ../../bundles/cert-manager
   - ../../bundles/external-secrets
   - apiservers/cluster.yaml
@@ -14,6 +17,7 @@ resources:
 
 patches:
   - path: oauths/cluster_patch.yaml
+  - path: groups/cluster-admins.yaml
 
   - target:
       kind: ClusterIssuer
