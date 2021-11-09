@@ -51,6 +51,11 @@ configMapGenerator:
     files:
       - config.yaml=configmaps/cluster-monitoring-config.yaml
 
-patchesStrategicMerge:
-  - groups/cluster-admins.yaml
-  - oauths/cluster_patch.yaml
+patches:
+  - path: groups/cluster-admins.yaml
+  - path: oauths/cluster_patch.yaml
+
+  - target:
+      kind: Subscription
+      group: operators.coreos.com
+    path: subscriptions/subscription-wave_patch.yaml
