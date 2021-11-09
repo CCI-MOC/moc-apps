@@ -56,6 +56,11 @@ patches:
   - path: oauths/cluster_patch.yaml
 
   - target:
+      kind: ClusterIssuer
+      name: letsencrypt-production-dns01
+    path: clusterissuers/letsencrypt-production-dns01_patch.yaml
+
+  - target:
       kind: Subscription
       group: operators.coreos.com
     path: subscriptions/subscription-wave_patch.yaml

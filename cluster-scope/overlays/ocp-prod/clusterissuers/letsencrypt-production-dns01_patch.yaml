@@ -2,4 +2,4 @@
   path: /spec/acme/solvers/0/selector
   value:
     dnsZones:
-      - ocp-staging.massopen.cloud
+      - ocp-prod.massopen.cloud
