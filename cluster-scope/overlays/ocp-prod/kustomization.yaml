@@ -1,33 +1,26 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  # please keep these items sorted
-  - ../../base/config.openshift.io/oauths/cluster
+  - ../common
+
   - ../../base/core/namespaces/cs6620-fall21-deployverticalpod
   - ../../base/core/namespaces/gpu-operator-resources
   - ../../base/core/namespaces/moc-projects
   - ../../base/core/namespaces/netbox
   - ../../base/core/namespaces/openshift-nfd
-  - ../../base/core/persistentvolumeclaims/image-registry-storage
-  - ../../base/imageregistry.operator.openshift.io/configs/cluster
   - ../../base/nvidia.com/clusterpolicy/gpu-cluster-policy
   - ../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
   - ../../base/operators.coreos.com/subscriptions/openshift-nfd
-  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/project-maker-rb
-  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
   - ../../base/rbac.authorization.k8s.io/clusterroles/project-maker
-  - ../../base/user.openshift.io/groups/cluster-admins
 
-  - ../../bundles/cert-manager
-  - ../../bundles/external-secrets
+  - ../../bundles/image-registry
   - ../../bundles/nmstate
   - ../../bundles/ocs
   - ../../bundles/vertical-pod-autoscaler
 
-  - apiservers/cluster.yaml
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
   - clusterversions/version.yaml
@@ -36,9 +29,6 @@ resources:
   - externalsecrets/sso-clientsecret-moc-testing.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
   - externalsecrets/alertmanager-main.yaml
-  - ingresscontrollers/default.yaml
-  - machineconfigs/99-master-ssh.yaml
-  - machineconfigs/99-worker-ssh.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
 
@@ -52,7 +42,7 @@ configMapGenerator:
       - config.yaml=configmaps/cluster-monitoring-config.yaml
 
 patches:
-  - path: groups/cluster-admins.yaml
+  - path: apiservers/cluster_patch.yaml
   - path: oauths/cluster_patch.yaml
 
   - target:
