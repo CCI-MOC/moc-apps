@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../common
 
+  - ../../bundles/nmstate
   - ../../bundles/node-labeler
 
   - certificates/api-certificate-letsencrypt.yaml
