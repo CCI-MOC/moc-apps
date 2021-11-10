@@ -5,10 +5,12 @@ resources:
 
   - ../../bundles/nmstate
   - ../../bundles/node-labeler
+  - ../../bundles/ocs
 
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
+  - externalsecrets/rook-ceph-external-cluster-details.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
 
 patches:
