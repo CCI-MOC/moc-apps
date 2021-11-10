@@ -9,6 +9,7 @@ resources:
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
+  - nodenetworkconfigurationpolicies/ceph-client-network.yaml
 
 patches:
   - path: apiservers/cluster_patch.yaml

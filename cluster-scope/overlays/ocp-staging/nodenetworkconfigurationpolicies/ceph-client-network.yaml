@@ -1,0 +1,39 @@
+apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ceph-client-network-ens803f0
+spec:
+  nodeSelector:
+    massopen.cloud/primary-interface: ens803f0
+  desiredState:
+    interfaces:
+      - name: ens803f0.250
+        description: ceph client network
+        type: vlan
+        state: up
+        vlan:
+          base-iface: ens803f0
+          id: 250
+        ipv4:
+          enabled: true
+          dhcp: true
+---
+apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ceph-client-network-ens1f1np1
+spec:
+  nodeSelector:
+    massopen.cloud/primary-interface: ens1f1np1
+  desiredState:
+    interfaces:
+      - name: ens1f1np1.250
+        description: ceph client network
+        type: vlan
+        state: up
+        vlan:
+          base-iface: ens1f1np1
+          id: 250
+        ipv4:
+          enabled: true
+          dhcp: true
