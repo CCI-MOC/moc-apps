@@ -25,4 +25,8 @@ patches:
   - target:
       kind: Subscription
       group: operators.coreos.com
-    path: subscriptions/subscription-wave_patch.yaml
+    path: misc/sync-wave_patch.yaml
+
+  - target:
+      kind: Namespace
+    path: misc/sync-wave_patch.yaml

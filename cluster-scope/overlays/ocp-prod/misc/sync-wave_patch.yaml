@@ -1,0 +1,6 @@
+apiVersion: does-not-matter
+kind: does-not-matter
+metadata:
+  name: does-not-matter
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
