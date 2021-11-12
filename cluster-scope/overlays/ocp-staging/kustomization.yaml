@@ -9,6 +9,7 @@ resources:
 
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
+  - clusterversions/version.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
   - externalsecrets/rook-ceph-external-cluster-details.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
