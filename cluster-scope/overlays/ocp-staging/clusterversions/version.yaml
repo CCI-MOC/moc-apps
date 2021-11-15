@@ -6,5 +6,5 @@ spec:
   channel: fast-4.9
   clusterID: 8986816a-6a42-4815-a5dd-e2f3e7eac95c
   desiredUpdate:
-    version: 4.8.19
-    image: quay.io/openshift-release-dev/ocp-release@sha256:ac19c975be8b8a449dedcdd7520e970b1cc827e24042b8976bc0495da32c6b59
+    version: 4.9.6
+    image: quay.io/openshift-release-dev/ocp-release@sha256:c9f58ccb8a9085df4eeb23e21ca201d4c7d39bc434786d58a55381e13215a199
