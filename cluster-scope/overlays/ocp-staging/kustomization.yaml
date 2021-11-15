@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../common
 
+  - ../../bundles/cnv
   - ../../bundles/nmstate
   - ../../bundles/node-labeler
   - ../../bundles/ocs
@@ -14,6 +15,7 @@ resources:
   - configmaps/admin-acks.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
   - externalsecrets/rook-ceph-external-cluster-details.yaml
+  - hyperconverged/kubevirt-hyperconverged.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
 
 patches:
