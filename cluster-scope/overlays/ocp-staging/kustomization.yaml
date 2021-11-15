@@ -6,6 +6,7 @@ resources:
   - ../../bundles/nmstate
   - ../../bundles/node-labeler
   - ../../bundles/ocs
+  - ../../bundles/metallb
 
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
