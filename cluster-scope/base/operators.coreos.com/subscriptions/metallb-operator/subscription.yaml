@@ -1,10 +1,10 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: metallb-operator-sub
+  name: metallb-operator
   namespace: metallb-system
 spec:
   channel: "4.9"
   name: metallb-operator
-  source: community-operators
+  source: redhat-operators
   sourceNamespace: openshift-marketplace
