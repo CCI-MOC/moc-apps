@@ -4,7 +4,6 @@ resources:
   - ../common
 
   - ../../bundles/cnv
-  - ../../bundles/nmstate
   - ../../bundles/node-labeler
   - ../../bundles/ocs
   - ../../bundles/metallb
