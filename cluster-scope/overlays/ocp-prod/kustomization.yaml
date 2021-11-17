@@ -17,6 +17,7 @@ resources:
   - ../../base/rbac.authorization.k8s.io/clusterroles/project-maker
 
   - ../../bundles/image-registry
+  - ../../bundles/metallb
   - ../../bundles/nmstate
   - ../../bundles/ocs
   - ../../bundles/vertical-pod-autoscaler
