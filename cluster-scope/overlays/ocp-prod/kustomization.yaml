@@ -24,11 +24,12 @@ resources:
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
   - clusterversions/version.yaml
+  - configmaps/admin-acks.yaml
+  - externalsecrets/alertmanager-main.yaml
   - externalsecrets/aws-route53-secret.yaml
   - externalsecrets/rook-ceph-external-cluster-details.yaml
   - externalsecrets/sso-clientsecret-moc-testing.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
-  - externalsecrets/alertmanager-main.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
 
