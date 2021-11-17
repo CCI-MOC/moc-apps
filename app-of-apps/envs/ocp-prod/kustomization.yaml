@@ -7,5 +7,6 @@ resources:
 - external-secrets
 - moc-projects
 - netbox
+- metallb
 
 nameSuffix: -ocp-prod

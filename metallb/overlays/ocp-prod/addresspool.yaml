@@ -1,0 +1,8 @@
+apiVersion: metallb.io/v1alpha1
+kind: AddressPool
+metadata:
+  name: csail-10
+spec:
+  protocol: layer2
+  addresses:
+  - 128.52.61.128-128.52.61.255
