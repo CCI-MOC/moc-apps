@@ -9,6 +9,7 @@ resources:
   - ../../base/core/namespaces/netbox
   - ../../base/core/namespaces/openshift-nfd
   - ../../base/nvidia.com/clusterpolicy/gpu-cluster-policy
+  - ../../base/operators.coreos.com/operatorgroups/cs6620-fall21-deployverticalpod
   - ../../base/operators.coreos.com/operatorgroups/openshift-nfd
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/gpu-operator-certified
