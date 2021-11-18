@@ -15,4 +15,4 @@ patches:
 
 images:
   - name: quay.io/larsks/moc-project-tool:latest
-    newTag: 96d8bd8
+    newTag: d832d6c
