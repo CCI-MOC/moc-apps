@@ -6,7 +6,6 @@ metadata:
     kustomize.config.k8s.io/behavior: replace
 users:
   - lkellogg@redhat.com
-  - lars@bu.edu
   - naved001@bu.edu
   - knikolla@bu.edu
   - robbaron@bu.edu
