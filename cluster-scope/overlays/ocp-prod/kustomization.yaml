@@ -35,6 +35,7 @@ resources:
   - hyperconverged/kubevirt-hyperconverged.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
+  - quota/vr2-fall2021-virtualrose2021
 
 generatorOptions:
   disableNameSuffixHash: true
