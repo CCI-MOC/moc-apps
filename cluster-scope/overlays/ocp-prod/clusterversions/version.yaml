@@ -3,7 +3,7 @@ kind: ClusterVersion
 metadata:
   name: version
 spec:
-  channel: fast-4.9
+  channel: stable-4.9
   clusterID: 964bd47e-ee56-46ed-b9cd-1920b3e3be90
   desiredUpdate:
     version: 4.9.6
