@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: koku-metrics-operator-sub
+  namespace: koku-metrics-operator
+spec:
+  channel: "1.1.1"
+  name: koku-metrics-operator
+  source: community-operators
+  sourceNamespace: openshift-marketplace
