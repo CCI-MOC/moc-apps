@@ -6,3 +6,4 @@ metadata:
 spec:
   targetNamespaces:
   - koku-metrics-operator
+  

@@ -5,3 +5,4 @@ resources:
   - ../../base/core/namespaces/koku-metrics-operator/
   - ../../base/operators.coreos.com/operatorgroups/koku-metrics-operator/
   - ../../base/operators.coreos.com/subscriptions/koku-metrics-operator/
+  
