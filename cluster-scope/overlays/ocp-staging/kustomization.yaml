@@ -13,6 +13,7 @@ resources:
   - clusterversions/version.yaml
   - configmaps/admin-acks.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
+  - externalsecrets/sso-clientsecret-moc-testing.yaml
   - externalsecrets/rook-ceph-external-cluster-details.yaml
   - hyperconverged/kubevirt-hyperconverged.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
