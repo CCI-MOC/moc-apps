@@ -20,3 +20,19 @@ spec:
         extraScopes: []
         issuer: https://sso.massopen.cloud/auth/realms/moc
       type: OpenID
+    - mappingMethod: claim
+      name: moc-testing
+      openID:
+        claims:
+          email:
+          - email
+          name:
+          - name
+          preferredUsername:
+          - preferred_username
+        clientID: moc-openshift-ocp-staging
+        clientSecret:
+          name: sso-clientsecret-moc-testing
+        extraScopes: []
+        issuer: https://sso.massopen.cloud/auth/realms/moc-testing
+      type: OpenID
