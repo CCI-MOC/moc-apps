@@ -3,4 +3,3 @@ kind: Kustomization
 namespace: koku-metrics-operator
 resources:
 - namespace.yaml
-
