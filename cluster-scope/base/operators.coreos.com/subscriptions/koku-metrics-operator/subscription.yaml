@@ -4,7 +4,8 @@ metadata:
   name: koku-metrics-operator
   namespace: koku-metrics-operator
 spec:
-  channel: "1.1.1"
+  channel: beta
+  installPlanApproval: Automatic
   name: koku-metrics-operator
   source: community-operators
   sourceNamespace: openshift-marketplace
