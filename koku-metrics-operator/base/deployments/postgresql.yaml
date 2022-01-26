@@ -58,5 +58,3 @@ spec:
         - name: postgresql-data-2
             persistentVolumeClaim:
             claimName: pgsql-data-2
-            
-
