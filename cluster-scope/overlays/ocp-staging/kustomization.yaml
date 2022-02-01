@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - ../common
 
+  - ../../base/rbac.authorization.k8s.io/rolebindings/koku-metrics-operator-admin
+  - ../../base/user.openshift.io/groups/koku-metrics-operator-admin
   - ../../bundles/cnv
   - ../../bundles/node-labeler
   - ../../bundles/ocs
@@ -22,6 +24,7 @@ resources:
 patches:
   - path: apiservers/cluster_patch.yaml
   - path: oauths/cluster_patch.yaml
+  - path: groups/koku-metrics-operator-admin.yaml
 
   - target:
       kind: ClusterIssuer
