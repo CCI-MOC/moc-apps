@@ -10,6 +10,7 @@ resources:
   - ../../bundles/ocs
   - ../../bundles/metallb
   - ../../bundles/koku-metrics-operator
+  - ../../bundles/snapscheduler
 
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
