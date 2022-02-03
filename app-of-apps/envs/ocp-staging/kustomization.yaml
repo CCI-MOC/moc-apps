@@ -6,5 +6,6 @@ resources:
 - external-secrets
 - node-labeler
 - metallb
+- snapscheduler
 
 nameSuffix: -ocp-staging
