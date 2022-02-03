@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/core/namespaces/snapscheduler
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/snapshotschedules.snapscheduler.backube
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-snapscheduler-proxy
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/moc-snapscheduler
+  - ../../base/rbac.authorization.k8s.io/clusterroles/moc-snapscheduler-metrics-reader
+  - ../../base/rbac.authorization.k8s.io/clusterroles/moc-snapscheduler-proxy
+  - ../../base/rbac.authorization.k8s.io/clusterroles/moc-snapscheduler
