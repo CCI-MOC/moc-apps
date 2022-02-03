@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/instance: moc
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: snapscheduler
+    app.kubernetes.io/version: 2.1.0
+    helm.sh/chart: snapscheduler-2.1.0
+  name: moc-snapscheduler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: moc-snapscheduler
+subjects:
+  - kind: ServiceAccount
+    name: moc-snapscheduler
+    namespace: snapscheduler
