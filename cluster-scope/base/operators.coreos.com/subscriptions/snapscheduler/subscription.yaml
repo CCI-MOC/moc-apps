@@ -1,0 +1,13 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+    labels:
+        operators.coreos.com/ocs-operator.snapscheduler: ""
+    name: snapscheduler
+    namespace: openshift-operators
+spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: snapscheduler
+    source: community-operators
+    sourceNamespace: openshift-marketplace
