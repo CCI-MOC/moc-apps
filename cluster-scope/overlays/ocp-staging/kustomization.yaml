@@ -11,6 +11,7 @@ resources:
   - ../../bundles/ocs
   - ../../bundles/metallb
   - ../../bundles/koku-metrics-operator
+  - ../../bundles/volsync
 
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
