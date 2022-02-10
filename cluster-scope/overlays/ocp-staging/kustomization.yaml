@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../common
 
+  - ../../base/rbac.authorization.k8s.io/rolebindings/report-system-admin
   - ../../base/rbac.authorization.k8s.io/rolebindings/koku-metrics-operator-admin
   - ../../base/user.openshift.io/groups/koku-metrics-operator-admin
   - ../../bundles/cnv
