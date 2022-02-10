@@ -21,6 +21,7 @@ resources:
   - externalsecrets/rook-ceph-external-cluster-details.yaml
   - hyperconverged/kubevirt-hyperconverged.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
+  - snapshotschedules/db-noobaa-db-pg-0.yaml
 
 patches:
   - path: apiservers/cluster_patch.yaml

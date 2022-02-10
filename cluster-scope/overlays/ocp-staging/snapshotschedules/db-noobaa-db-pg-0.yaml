@@ -1,0 +1,15 @@
+apiVersion: snapscheduler.backube/v1
+kind: SnapshotSchedule
+metadata:
+  name: db-noobaa-db-pg
+spec:
+  claimSelector:
+    matchLabels:
+      app: noobaa
+      noobaa-db: postgres
+  retention:
+    maxCount: 8
+  schedule: "0 */6 * * *"
+  snapshotTemplate:
+    labels:
+      app: noobaa
