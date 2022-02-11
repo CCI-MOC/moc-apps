@@ -2,6 +2,7 @@ apiVersion: snapscheduler.backube/v1
 kind: SnapshotSchedule
 metadata:
   name: db-noobaa-db-pg
+  namespace: openshift-storage
 spec:
   claimSelector:
     matchLabels:
