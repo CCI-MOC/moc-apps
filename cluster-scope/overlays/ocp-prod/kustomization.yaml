@@ -36,6 +36,7 @@ resources:
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
   - quota/vr2-fall2021-virtualrose2021
+  - quota/thesis-mosayyebzadeh
 
 generatorOptions:
   disableNameSuffixHash: true
