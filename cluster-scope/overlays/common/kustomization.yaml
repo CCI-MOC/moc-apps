@@ -13,6 +13,7 @@ resources:
 
   - machineconfigs/99-master-ssh.yaml
   - machineconfigs/99-worker-ssh.yaml
+  - snapshotschedules/db-noobaa-db-pg-0.yaml
 
 patches:
   - path: groups/cluster-admins.yaml
