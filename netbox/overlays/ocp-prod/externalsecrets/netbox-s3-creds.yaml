@@ -1,0 +1,9 @@
+apiVersion: "kubernetes-client.io/v1"
+kind: ExternalSecret
+metadata:
+  name: netbox-s3-creds
+spec:
+  backendType: secretsManager
+  data:
+    - key: cluster/ocp-prod/netbox/pgbackrest-s3-conf
+      name: s3.conf

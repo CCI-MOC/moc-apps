@@ -27,8 +27,17 @@ spec:
   backups:
     pgbackrest:
       image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:centos8-2.35-0
+      configuration:
+        - secret:
+            name: netbox-s3-creds
       global:
+        # Note that retention-type defaults to "count", so a value of "7"
+        # here means "keep 7 full backups".
+        #
+        # https://pgbackrest.org/configuration.html#section-repository/option-repo-retention-full-type
         repo1-retention-full: "7"
+        repo2-retention-full: "2"
+        repo2-retention-diff: "4"
       repos:
       - name: repo1
         schedules:
@@ -41,3 +50,11 @@ spec:
             resources:
               requests:
                 storage: 15Gi
+      - name: repo2
+        schedules:
+          # full backups on the first of the month
+          full: '17 1 1 * *'
+          # differential backups once/week
+          differential: '17 2 * * 0'
+          # incremental backups daily
+          incremental: '17 4 * * *'
