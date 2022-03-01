@@ -58,3 +58,7 @@ spec:
           differential: '17 2 * * 0'
           # incremental backups daily
           incremental: '17 4 * * *'
+        s3:
+          endpoint: https://rgw-j-vip.int.massopen.cloud
+          bucket: netbox
+          region: default
