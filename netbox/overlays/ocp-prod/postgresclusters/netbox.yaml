@@ -35,14 +35,14 @@ spec:
         # here means "keep 7 full backups".
         #
         # https://pgbackrest.org/configuration.html#section-repository/option-repo-retention-full-type
-        repo1-retention-full: "7"
-        repo2-retention-full: "2"
-        repo2-retention-diff: "4"
+        repo1-retention-full: "5"
+        repo2-retention-full: "4"
+        repo2-s3-uri-style: path
       repos:
       - name: repo1
         schedules:
-          full: '0 1 * * *'
-          incremental: '0 */4 * * *'
+          full: '17 1 * * *'
+          incremental: '17 */4 * * *'
         volume:
           volumeClaimSpec:
             accessModes:
@@ -52,13 +52,11 @@ spec:
                 storage: 15Gi
       - name: repo2
         schedules:
-          # full backups on the first of the month
-          full: '17 1 1 * *'
-          # differential backups once/week
-          differential: '17 2 * * 0'
-          # incremental backups daily
-          incremental: '17 4 * * *'
+          full: '23 1 1 * *'
+          differential: '23 3 * * 1'
+          incremental: '23 5 * * *'
         s3:
-          endpoint: https://rgw-j-vip.int.massopen.cloud
+          # see https://github.com/CrunchyData/postgres-operator/issues/2836
+          endpoint: "rgw-j-vip.int.massopen.cloud:443"
           bucket: netbox
           region: default
