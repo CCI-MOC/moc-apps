@@ -4,6 +4,7 @@ resources:
   - ../../base/config.openshift.io/apiservers/cluster
   - ../../base/config.openshift.io/oauths/cluster
   - ../../base/operator.openshift.io/ingresscontrollers/default
+  - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/snapscheduler
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
