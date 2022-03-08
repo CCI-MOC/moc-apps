@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netbox
+spec:
+  template:
+    spec:
+      containers:
+        - name: netbox
+          env:
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: host
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: dbname
+          envFrom:
+            - secretRef:
+                name: netbox-secret
+          volumeMounts:
+            - name: netbox-config
+              mountPath: /etc/netbox/config/extra.py
+              subPath: extra.py
+        - name: netbox-worker
+          env:
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: host
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: dbname
+          envFrom:
+            - secretRef:
+                name: netbox-secret
+          volumeMounts:
+            - name: netbox-config
+              mountPath: /etc/netbox/config/extra.py
+              subPath: extra.py
+        - name: netbox-housekeeping
+          env:
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: host
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: netbox-pguser-netbox
+                  key: dbname
+          envFrom:
+            - secretRef:
+                name: netbox-secret
+          volumeMounts:
+            - name: netbox-config
+              mountPath: /etc/netbox/config/extra.py
+              subPath: extra.py
+      volumes:
+        - name: netbox-config
+          configMap:
+            name: netbox-config
