@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: netbox
+spec:
+  host: netbox.apps.ocp-staging.massopen.cloud
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  to:
+    kind: Service
+    name: netbox-auth
+    weight: 100

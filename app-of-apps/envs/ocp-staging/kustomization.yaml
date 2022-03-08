@@ -6,6 +6,7 @@ resources:
 - external-secrets
 - node-labeler
 - metallb
+- netbox
 - volsync
 
 nameSuffix: -ocp-staging
