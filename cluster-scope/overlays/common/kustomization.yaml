@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../base/config.openshift.io/apiservers/cluster
   - ../../base/config.openshift.io/oauths/cluster
+  - ../../base/core/namespaces/netbox
   - ../../base/operator.openshift.io/ingresscontrollers/default
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/snapscheduler
