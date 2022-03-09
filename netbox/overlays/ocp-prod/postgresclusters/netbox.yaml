@@ -58,5 +58,5 @@ spec:
         s3:
           # see https://github.com/CrunchyData/postgres-operator/issues/2836
           endpoint: "rgw-j-vip.int.massopen.cloud:443"
-          bucket: netbox
+          bucket: netbox-backup
           region: default
