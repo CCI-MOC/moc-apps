@@ -6,9 +6,11 @@ commonLabels:
 
 resources:
   - ../../base
+
+  - externalsecrets/netbox-backup.yaml
   - externalsecrets/netbox-secret.yaml
   - externalsecrets/oauth2-secret.yaml
-  - externalsecrets/netbox-s3-creds.yaml
+  - externalsecrets/pgbackrest-s3-conf.yaml
   - postgresclusters/netbox.yaml
   - routes/netbox-api.yaml
   - services/netbox-auth.yaml

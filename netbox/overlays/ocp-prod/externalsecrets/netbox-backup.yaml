@@ -1,0 +1,13 @@
+apiVersion: "kubernetes-client.io/v1"
+kind: ExternalSecret
+metadata:
+  name: netbox-backup
+spec:
+  backendType: secretsManager
+  data:
+    - key: cluster/ocp-prod/netbox/netbox-backup
+      name: creds_json
+  template:
+    stringData:
+      AWS_ACCESS_KEY_ID: <%= JSON.parse(data.creds_json).AWS_ACCESS_KEY_ID %>
+      AWS_SECRET_ACCESS_KEY: <%= JSON.parse(data.creds_json).AWS_SECRET_ACCESS_KEY %>

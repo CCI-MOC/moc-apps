@@ -29,7 +29,7 @@ spec:
       image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:centos8-2.35-0
       configuration:
         - secret:
-            name: netbox-s3-creds
+            name: pgbackrest-s3-conf
       global:
         # Note that retention-type defaults to "count", so a value of "7"
         # here means "keep 7 full backups".
