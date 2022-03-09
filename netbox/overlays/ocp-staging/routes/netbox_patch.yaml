@@ -3,7 +3,7 @@ kind: Route
 metadata:
   name: netbox
 spec:
-  host: netbox.apps.ocp-staging.massopen.cloud
+  host: netbox-staging.apps.ocp-staging.massopen.cloud
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
