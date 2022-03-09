@@ -19,7 +19,7 @@ configMapGenerator:
       - config/extra.py
   - name: oauth2-config
     envs:
-      - oauth2.env
+      - config/oauth2.env
 
 patches:
   - path: deployments/netbox_oauth_patch.yaml
