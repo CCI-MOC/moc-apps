@@ -6,6 +6,7 @@ commonLabels:
 
 resources:
   - ../../base
+  - ../common
   - externalsecrets/netbox-secret.yaml
   - externalsecrets/oauth2-secret.yaml
   - postgresclusters/netbox.yaml
@@ -19,6 +20,9 @@ configMapGenerator:
   - name: oauth2-config
     envs:
       - config/oauth2.env
+  - name: netbox-bucket-policy
+    files:
+      - config/allow-anonymous-read.json
 
 patches:
   - path: deployments/netbox_oauth_patch.yaml
