@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: guacamole
+spec:
+  selector:
+    component: guacamole
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: nginx

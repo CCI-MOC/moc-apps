@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guacamole
+  labels:
+    component: guacamole
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: guacamole
+    spec:
+      initContainers:
+        - name: initdb
+          image: docker.io/postgres:9
+          volumeMounts:
+            - name: guacamole-initdb
+              mountPath: /initdb
+          env:
+            - name: POSTGRES_HOSTNAME
+              value: postgres
+            - name: POSTGRES_DB
+              value: guacamole
+            - name: POSTGRES_USER
+              value: guacamole
+          envFrom:
+            - secretRef:
+                name: guacadmin-password
+            - secretRef:
+                name: postgres-password
+          command:
+            - bash
+            - /initdb/initdb.sh
+      containers:
+        - name: nginx
+          image: docker.io/nginxinc/nginx-unprivileged:1.21
+          ports:
+            - containerPort: 8081
+              name: nginx
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+        - name: guacamole
+          image: docker.io/guacamole/guacamole:1.4.0
+          ports:
+            - containerPort: 8080
+              name: guacamole
+          env:
+            - name: POSTGRES_DATABASE
+              value: guacamole
+            - name: POSTGRES_USER
+              value: guacamole
+            - name: POSTGRES_HOSTNAME
+              value: postgres
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: GUACD_HOSTNAME
+              value: guacd
+            - name: GUACD_PORT
+              value: "4822"
+            - name: HOME
+              value: /config
+            - name: HEADER_ENABLED
+              value: "true"
+            - name: HTTP_AUTH_HEADER
+              value: X-Forwarded-Preferred-Username
+          envFrom:
+            - configMapRef:
+                name: guacamole-config
+            - secretRef:
+                name: postgres-password
+          volumeMounts:
+            - name: guacamole-data
+              mountPath: /config
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config
+        - name: guacamole-data
+          emptyDir: {}
+        - name: guacamole-initdb
+          configMap:
+            name: guacamole-initdb

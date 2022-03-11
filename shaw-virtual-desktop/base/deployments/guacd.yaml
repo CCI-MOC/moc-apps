@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guacd
+  labels:
+    component: guacd
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: guacd
+    spec:
+      containers:
+        - name: guacd
+          image: docker.io/guacamole/guacd:1.4.0
+          ports:
+            - containerPort: 4822
+              name: guacd
+          env:
+            - name: HOME
+              value: /data
+          volumeMounts:
+            - name: guacd-data
+              mountPath: /data
+            - name: shared-drives
+              mountPath: /shared
+      volumes:
+        - name: guacd-data
+          emptyDir: {}
+        - name: shared-drives
+          persistentVolumeClaim:
+            claimName: shared-drives
