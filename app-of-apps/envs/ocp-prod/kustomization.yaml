@@ -8,5 +8,6 @@ resources:
 - moc-projects
 - netbox
 - metallb
+- shaw-virtual-desktop
 
 nameSuffix: -ocp-prod
