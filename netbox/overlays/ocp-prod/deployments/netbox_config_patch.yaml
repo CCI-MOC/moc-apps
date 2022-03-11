@@ -31,6 +31,10 @@ spec:
           envFrom:
             - secretRef:
                 name: netbox-secret
+            - secretRef:
+                name: netbox-storage
+            - configMapRef:
+                name: netbox-storage
           volumeMounts:
             - name: netbox-config
               mountPath: /etc/netbox/config/extra.py
@@ -60,6 +64,10 @@ spec:
           envFrom:
             - secretRef:
                 name: netbox-secret
+            - secretRef:
+                name: netbox-storage
+            - configMapRef:
+                name: netbox-storage
           volumeMounts:
             - name: netbox-config
               mountPath: /etc/netbox/config/extra.py
@@ -89,11 +97,40 @@ spec:
           envFrom:
             - secretRef:
                 name: netbox-secret
+            - secretRef:
+                name: netbox-storage
+            - configMapRef:
+                name: netbox-storage
           volumeMounts:
             - name: netbox-config
               mountPath: /etc/netbox/config/extra.py
               subPath: extra.py
+      initContainers:
+        - name: set-bucket-policy
+          image: docker.io/amazon/aws-cli:latest
+          envFrom:
+            - secretRef:
+                name: netbox-storage
+            - configMapRef:
+                name: netbox-storage
+          volumeMounts:
+            - name: netbox-bucket-policy
+              mountPath: /policy
+          command:
+            - bash
+            - -c
+            - |
+              sed "s/BUCKET_NAME/${BUCKET_NAME}/g" /policy/allow-anonymous-read.json > /tmp/policy.json
+              while :; do
+                aws --ca-bundle /run/secrets/kubernetes.io/serviceaccount/service-ca.crt \
+                  --endpoint https://${BUCKET_HOST} s3api put-bucket-policy \
+                  --bucket ${BUCKET_NAME} --policy file:///tmp/policy.json && break
+                sleep 5
+              done
       volumes:
         - name: netbox-config
           configMap:
             name: netbox-config
+        - name: netbox-bucket-policy
+          configMap:
+            name: netbox-bucket-policy
