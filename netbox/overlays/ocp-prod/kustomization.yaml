@@ -13,7 +13,6 @@ resources:
   - externalsecrets/pgbackrest-s3-conf.yaml
   - objectbucketclaims/netbox-storage.yaml
   - postgresclusters/netbox.yaml
-  - routes/netbox-api.yaml
   - services/netbox-auth.yaml
 
 configMapGenerator:
