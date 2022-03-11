@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: shaw-virtual-desktop
+spec:
+  destination:
+    name: ocp-prod
+    namespace: open-cluster-management-agent
+  project: mocops
+  source:
+    path: shaw-virtual-desktop/overlays/ocp-prod
+    repoURL: https://github.com/CCI-MOC/moc-apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true

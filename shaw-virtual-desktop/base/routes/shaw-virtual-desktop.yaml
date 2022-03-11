@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: shaw-virtual-desktop
+spec:
+  host: shaw-virtual-desktop.apps.ocp-prod.massopen.cloud
+  to:
+    kind: Service
+    name: guacamole
+  tls:
+    termination: edge

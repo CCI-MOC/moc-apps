@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: shaw-virtual-desktop
+commonLabels:
+  app: shaw-virtual-desktop
+resources:
+- deployments/guacamole.yaml
+- deployments/guacd.yaml
+- deployments/postgres.yaml
+- deployments/redis.yaml
+- routes/shaw-virtual-desktop.yaml
+- services/guacamole.yaml
+- services/guacd.yaml
+- services/oauth2-proxy.yaml
+- services/postgres.yaml
+- services/redis.yaml
+- volumes/postgres-data.yaml
+- volumes/redis-data.yaml
+- volumes/shared-drives.yaml
+
+configMapGenerator:
+- envs:
+  - configs/guacamole.env
+  name: guacamole-config
+- files:
+  - configs/initdb.sh
+  - configs/initdb.sql
+  name: guacamole-initdb
+- files:
+  - default.conf=configs/nginx-default.conf
+  name: nginx-config
