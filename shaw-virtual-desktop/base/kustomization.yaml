@@ -29,3 +29,6 @@ configMapGenerator:
 - files:
   - default.conf=configs/nginx-default.conf
   name: nginx-config
+- name: tomcat-config
+  files:
+    - configs/server.xml
