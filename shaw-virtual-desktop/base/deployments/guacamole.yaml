@@ -73,10 +73,16 @@ spec:
           volumeMounts:
             - name: guacamole-data
               mountPath: /config
+            - name: tomcat-config
+              mountPath: /usr/local/tomcat/conf/server.xml
+              subPath: server.xml
       volumes:
         - name: nginx-config
           configMap:
             name: nginx-config
+        - name: tomcat-config
+          configMap:
+            name: tomcat-config
         - name: guacamole-data
           emptyDir: {}
         - name: guacamole-initdb
