@@ -30,8 +30,3 @@ patches:
   - path: deployments/netbox_oauth_patch.yaml
   - path: deployments/netbox_config_patch.yaml
   - path: routes/netbox_patch.yaml
-
-images:
-  - name: quay.io/netboxcommunity/netbox
-    newName: quay.io/larsks/netbox
-    newTag: remote-group-autocreate-1.4.1-4
