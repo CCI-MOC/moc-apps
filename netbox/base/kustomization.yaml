@@ -18,4 +18,4 @@ resources:
 images:
   - name: netbox
     newName: quay.io/netboxcommunity/netbox
-    newTag: v3.0-ldap
+    newTag: v3.1
