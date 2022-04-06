@@ -11,3 +11,6 @@ subjects:
   - apiGroup: rbac.authorization.k8s.io
     kind: Group
     name: cluster-admins
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: local-cluster-admins
