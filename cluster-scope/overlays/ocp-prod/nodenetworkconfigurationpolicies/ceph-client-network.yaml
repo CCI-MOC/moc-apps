@@ -78,3 +78,23 @@ spec:
         ipv4:
           enabled: true
           dhcp: true
+---
+apiVersion: nmstate.io/v1alpha1
+kind: NodeNetworkConfigurationPolicy
+metadata:
+  name: ceph-client-network-enp3s0f1np1
+spec:
+  nodeSelector:
+    massopen.cloud/storage-interface: enp3s0f1np1
+  desiredState:
+    interfaces:
+      - name: enp3s0f1np1.250
+        description: ceph client network
+        type: vlan
+        state: up
+        vlan:
+          base-iface: enp3s0f1np1
+          id: 250
+        ipv4:
+          enabled: true
+          dhcp: true
