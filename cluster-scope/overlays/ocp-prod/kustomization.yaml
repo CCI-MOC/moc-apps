@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - ../common
 
-  - ../../base/apiextensions.k8s.io/customresourcedefinitions/rayclusters.cluster.ray.io/
   - ../../base/core/namespaces/cs6620-fall21-deployverticalpod
   - ../../base/core/namespaces/gpu-operator-resources
   - ../../base/core/namespaces/moc-projects
@@ -20,6 +19,7 @@ resources:
   - ../../bundles/image-registry
   - ../../bundles/metallb
   - ../../bundles/ocs
+  - ../../bundles/ray-clusters
   - ../../bundles/vertical-pod-autoscaler
 
   - certificates/api-certificate-letsencrypt.yaml
