@@ -5,6 +5,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: ray-operator-serviceaccount
+  namespace: remote-sensing
 roleRef:
   kind: Role
   name: ray-operator-role
