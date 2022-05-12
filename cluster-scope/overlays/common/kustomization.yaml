@@ -13,6 +13,7 @@ resources:
   - ../../base/user.openshift.io/groups/local-cluster-admins
   - ../../bundles/cert-manager
   - ../../bundles/external-secrets
+  - ../../bundles/image-registry
 
   - machineconfigs/99-master-ssh.yaml
   - machineconfigs/99-worker-ssh.yaml
