@@ -8,8 +8,10 @@ resources:
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/snapscheduler
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-admins-rb
+  - ../../base/rbac.authorization.k8s.io/clusterrolebindings/cluster-reader
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/self-provisioners
   - ../../base/user.openshift.io/groups/cluster-admins
+  - ../../base/user.openshift.io/groups/cluster-readers
   - ../../base/user.openshift.io/groups/local-cluster-admins
   - ../../bundles/cert-manager
   - ../../bundles/external-secrets
@@ -21,3 +23,4 @@ resources:
 
 patches:
   - path: groups/cluster-admins.yaml
+  - path: groups/cluster-readers.yaml
