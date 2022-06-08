@@ -35,6 +35,7 @@ resources:
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
   - quota/vr2-fall2021-virtualrose2021
   - quota/thesis-mosayyebzadeh
+  - quota/remote-sensing
 
 generatorOptions:
   disableNameSuffixHash: true
