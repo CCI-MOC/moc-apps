@@ -5,12 +5,12 @@ spec:
     default:
       cpu: "4"
       memory: "16Gi"
-      alpha.kubernetes.io/nvidia-gpu: 1
+      nvidia.com/gpu: 1
     defaultRequest:
       cpu: "4"
       memory: "16Gi"
-      alpha.kubernetes.io/nvidia-gpu: 1
+      nvidia.com/gpu: 1
     max:
       cpu: 8
       memory: "32Gi"
-      alpha.kubernetes.io/nvidia-gpu: 1
+      nvidia.com/gpu: 1
