@@ -1,4 +1,7 @@
-name: default
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: default
 spec:
   limits:
   - type: Container
