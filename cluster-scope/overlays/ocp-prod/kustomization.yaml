@@ -36,6 +36,7 @@ resources:
   - quota/vr2-fall2021-virtualrose2021
   - quota/thesis-mosayyebzadeh
   - quota/remote-sensing
+  - quote/disinformation-at-scale-eldritchjs
 
 generatorOptions:
   disableNameSuffixHash: true
