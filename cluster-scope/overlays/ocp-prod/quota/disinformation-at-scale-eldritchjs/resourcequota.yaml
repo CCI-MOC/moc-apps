@@ -9,4 +9,4 @@ spec:
     requests.cpu: "50"
     requests.memory: "100Gi"
     requests.storage: "100Gi"
-    requests.nvidia.com/gpu: 1    
+    requests.nvidia.com/gpu: 1
