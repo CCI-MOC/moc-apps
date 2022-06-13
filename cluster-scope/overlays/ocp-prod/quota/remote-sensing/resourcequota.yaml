@@ -5,7 +5,7 @@ metadata:
 spec:
   hard:
     limits.cpu: "40"
-    limits.memory: "160"
+    limits.memory: "160Gi"
     requests.cpu: "40"
     requests.memory: "160Gi"
     requests.storage: "400Gi"
