@@ -3,7 +3,6 @@ kind: PostgresCluster
 metadata:
   name: netbox
 spec:
-  image: registry.developers.crunchydata.com/crunchydata/crunchy-postgres:centos8-13.4-1
   postgresVersion: 13
   instances:
     - name: pgha1
@@ -26,7 +25,6 @@ spec:
                   postgres-operator.crunchydata.com/instance-set: pgha1
   backups:
     pgbackrest:
-      image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:centos8-2.35-0
       configuration:
         - secret:
             name: pgbackrest-s3-conf
