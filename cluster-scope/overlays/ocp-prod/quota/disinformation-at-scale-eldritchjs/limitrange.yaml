@@ -8,11 +8,11 @@ spec:
     default:
       cpu: "4"
       memory: "16Gi"
-      nvidia.com/gpu: 1
+      nvidia.com/gpu: 0
     defaultRequest:
       cpu: "4"
       memory: "16Gi"
-      nvidia.com/gpu: 1
+      nvidia.com/gpu: 0
     max:
       cpu: 8
       memory: "32Gi"
