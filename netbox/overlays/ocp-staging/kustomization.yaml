@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: netbox-staging
+
+resources:
+- ../ocp-prod
+
+patches:
+- path: postgresclusters/netbox_remote-backups_patch.yaml
+- path: externalsecrets/netbox-backup_patch.yaml
