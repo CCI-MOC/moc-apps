@@ -8,3 +8,7 @@ resources:
 patches:
 - path: postgresclusters/netbox_remote-backups_patch.yaml
 - path: externalsecrets/netbox-backup_patch.yaml
+- path: routes/netbox_patch.yaml
+  target:
+    kind: Route
+    name: netbox
