@@ -7,7 +7,6 @@ spec:
     spec:
       containers:
         - name: netbox
-          image: 'quay.io/hakasapl/netbox-moc-plugins:latest'
           volumeMounts:
             - name: netbox-plugin-config
               mountPath: /etc/netbox/config/plugins.py
