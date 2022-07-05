@@ -18,7 +18,6 @@ spec:
               mountPath: /etc/netbox/config/plugins.py
               subPath: plugins.py
         - name: netbox-housekeeping
-          image: 'quay.io/hakasapl/netbox-moc-plugins:latest'
           volumeMounts:
             - name: netbox-plugin-config
               mountPath: /etc/netbox/config/plugins.py
