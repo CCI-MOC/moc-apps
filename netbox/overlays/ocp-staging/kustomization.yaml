@@ -20,4 +20,3 @@ configMapGenerator:
     behavior: merge
     envs:
       - config/oauth2.env
-      
