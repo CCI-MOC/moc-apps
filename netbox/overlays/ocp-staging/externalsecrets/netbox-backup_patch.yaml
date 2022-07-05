@@ -1,0 +1,6 @@
+$patch: delete
+apiVersion: kubernetes-client.io/v1
+kind: ExternalSecret
+metadata:
+  name: netbox-backup
+  namespace: netbox

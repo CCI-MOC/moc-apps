@@ -1,31 +1,21 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: netbox
-commonLabels:
-  app: netbox
+namespace: netbox-staging
 
 resources:
-  - ../../base
-  - externalsecrets/netbox-secret.yaml
-  - externalsecrets/oauth2-secret.yaml
-  - postgresclusters/netbox.yaml
-  - routes/netbox-api.yaml
-  - services/netbox-auth.yaml
-
-configMapGenerator:
-  - name: netbox-config
-    files:
-      - config/extra.py
-  - name: oauth2-config
-    envs:
-      - config/oauth2.env
+- ../ocp-prod
 
 patches:
-  - path: deployments/netbox_oauth_patch.yaml
-  - path: deployments/netbox_config_patch.yaml
-  - path: routes/netbox_patch.yaml
+- path: postgresclusters/netbox_remote-backups_patch.yaml
+- path: externalsecrets/netbox-backup_patch.yaml
+- path: externalsecrets/oauth2-secret_patch.yaml
+- path: routes/netbox_patch.yaml
+  target:
+    kind: Route
+    name: netbox
 
-images:
-  - name: quay.io/netboxcommunity/netbox
-    newName: quay.io/larsks/netbox
-    newTag: remote-group-autocreate-1.4.1-4
+configMapGenerator:
+  - name: oauth2-config
+    behavior: merge
+    envs:
+      - config/oauth2.env

@@ -1,0 +1,19 @@
+apiVersion: postgres-operator.crunchydata.com/v1beta1
+kind: PostgresCluster
+metadata:
+  name: netbox
+spec:
+  backups:
+    pgbackrest:
+      global:
+        $patch: delete
+      configuration: []
+      repos:
+      - name: repo1
+        volume:
+          volumeClaimSpec:
+            accessModes:
+            - "ReadWriteOnce"
+            resources:
+              requests:
+                storage: 1Gi
