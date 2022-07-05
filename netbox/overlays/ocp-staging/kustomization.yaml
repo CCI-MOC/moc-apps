@@ -16,6 +16,9 @@ patches:
     name: netbox
 
 configMapGenerator:
+  - name: netbox-plugin-config
+    files:
+      - config/plugins.py
   - name: oauth2-config
     behavior: merge
     envs:

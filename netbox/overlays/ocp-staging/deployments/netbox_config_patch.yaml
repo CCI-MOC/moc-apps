@@ -24,3 +24,7 @@ spec:
             - name: netbox-plugin-config
               mountPath: /etc/netbox/config/plugins.py
               subPath: plugins.py
+      volumes:
+        - name: netbox-plugin-config
+          configMap:
+            name: netbox-plugin-config
