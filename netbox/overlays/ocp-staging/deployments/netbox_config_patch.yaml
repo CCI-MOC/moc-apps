@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netbox
+spec:
+  template:
+    spec:
+      containers:
+        - name: netbox
+          volumeMounts:
+            - name: netbox-plugin-config
+              mountPath: /etc/netbox/config/plugins.py
+              subPath: plugins.py
+        - name: netbox-worker
+          volumeMounts:
+            - name: netbox-plugin-config
+              mountPath: /etc/netbox/config/plugins.py
+              subPath: plugins.py
+        - name: netbox-housekeeping
+          volumeMounts:
+            - name: netbox-plugin-config
+              mountPath: /etc/netbox/config/plugins.py
+              subPath: plugins.py
+      volumes:
+        - name: netbox-plugin-config
+          configMap:
+            name: netbox-plugin-config

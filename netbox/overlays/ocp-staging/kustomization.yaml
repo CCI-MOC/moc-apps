@@ -6,6 +6,7 @@ resources:
 - ../ocp-prod
 
 patches:
+- path: deployments/netbox_config_patch.yaml
 - path: postgresclusters/netbox_remote-backups_patch.yaml
 - path: externalsecrets/netbox-backup_patch.yaml
 - path: externalsecrets/oauth2-secret_patch.yaml
@@ -14,7 +15,15 @@ patches:
     kind: Route
     name: netbox
 
+images:
+  - name: quay.io/netboxcommunity/netbox
+    newName: quay.io/hakasapl/netbox-moc-plugins
+    newTag: latest
+
 configMapGenerator:
+  - name: netbox-plugin-config
+    files:
+      - config/plugins.py
   - name: oauth2-config
     behavior: merge
     envs:
