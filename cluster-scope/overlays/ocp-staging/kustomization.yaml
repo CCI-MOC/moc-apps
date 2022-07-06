@@ -22,6 +22,9 @@ resources:
   - externalsecrets/rook-ceph-external-cluster-details.yaml
   - hyperconverged/kubevirt-hyperconverged.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
+  - groups/xdmod-admins.yaml
+  - rolebindings/xdmod-admins.yaml
+  - rolebindings/xdmod-tzumainn-admins.yaml
 
 patches:
   - path: apiservers/cluster_patch.yaml

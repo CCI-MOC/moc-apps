@@ -1,0 +1,7 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: xdmod-admins
+users:
+  - tzumainn@redhat.com
+  - robbaron@bu.edu
