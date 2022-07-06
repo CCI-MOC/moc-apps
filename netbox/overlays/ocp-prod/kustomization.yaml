@@ -19,12 +19,20 @@ configMapGenerator:
   - name: netbox-config
     files:
       - config/extra.py
+  - name: netbox-plugin-config
+    files:
+      - config/plugins.py
   - name: oauth2-config
     envs:
       - config/oauth2.env
   - name: netbox-bucket-policy
     files:
       - config/allow-anonymous-read.json
+
+images:
+  - name: quay.io/netboxcommunity/netbox
+    newName: quay.io/hakasapl/netbox-moc-plugins
+    newTag: latest
 
 patches:
   - path: deployments/netbox_oauth_patch.yaml

@@ -39,6 +39,9 @@ spec:
             - name: netbox-config
               mountPath: /etc/netbox/config/extra.py
               subPath: extra.py
+            - name: netbox-plugin-config
+              mountPath: /etc/netbox/config/plugins.py
+              subPath: plugins.py
         - name: netbox-worker
           env:
             - name: DB_HOST
@@ -72,6 +75,9 @@ spec:
             - name: netbox-config
               mountPath: /etc/netbox/config/extra.py
               subPath: extra.py
+            - name: netbox-plugin-config
+              mountPath: /etc/netbox/config/plugins.py
+              subPath: plugins.py
         - name: netbox-housekeeping
           env:
             - name: DB_HOST
@@ -105,6 +111,9 @@ spec:
             - name: netbox-config
               mountPath: /etc/netbox/config/extra.py
               subPath: extra.py
+            - name: netbox-plugin-config
+              mountPath: /etc/netbox/config/plugins.py
+              subPath: plugins.py
       initContainers:
         - name: set-bucket-policy
           image: docker.io/amazon/aws-cli:latest
@@ -134,3 +143,6 @@ spec:
         - name: netbox-bucket-policy
           configMap:
             name: netbox-bucket-policy
+        - name: netbox-plugin-config
+          configMap:
+            name: netbox-plugin-config
