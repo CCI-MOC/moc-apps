@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: default
+spec:
+  hard:
+    limits.cpu: "150"
+    limits.memory: "300Gi"
+    requests.cpu: "150"
+    requests.memory: "300Gi"
+    requests.storage: "800Gi"
