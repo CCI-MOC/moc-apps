@@ -32,7 +32,7 @@ configMapGenerator:
 images:
   - name: quay.io/netboxcommunity/netbox
     newName: quay.io/hakasapl/netbox-moc-plugins
-    newTag: main
+    newTag: e7d3c8e
 
 patches:
   - path: deployments/netbox_oauth_patch.yaml
