@@ -1,9 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: koku-metrics-operator-admin
-  annotations:
-    kustomize.config.k8s.io/behavior: replace
-users:
-  - skanthed@redhat.com
-  - ababar@redhat.com
