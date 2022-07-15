@@ -2,15 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../common
-
-  - ../../base/rbac.authorization.k8s.io/rolebindings/report-system-admin
-  - ../../base/rbac.authorization.k8s.io/rolebindings/koku-metrics-operator-admin
-  - ../../base/user.openshift.io/groups/koku-metrics-operator-admin
   - ../../bundles/cnv
   - ../../bundles/node-labeler
   - ../../bundles/ocs
   - ../../bundles/metallb
-  - ../../bundles/koku-metrics-operator
   - ../../bundles/volsync
 
   - certificates/api-certificate-letsencrypt.yaml
@@ -29,7 +24,6 @@ resources:
 patches:
   - path: apiservers/cluster_patch.yaml
   - path: oauths/cluster_patch.yaml
-  - path: groups/koku-metrics-operator-admin.yaml
   - path: groups/local-cluster-admins.yaml
 
   - target:
