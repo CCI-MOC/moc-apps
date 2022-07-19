@@ -11,7 +11,8 @@ resources:
   - certificates/api-certificate-letsencrypt.yaml
   - certificates/default-ingress-certificate.yaml
   - clusterversions/version.yaml
-  - clusterrolebindings/xdmod-reader-cluster-monitor
+  - clusterroles/xdmod-permissions/
+  - clusterrolebindings/xdmod-reader-xdmod-permissions
   - configmaps/admin-acks.yaml
   - externalsecrets/sso-clientsecret-moc.yaml
   - externalsecrets/sso-clientsecret-moc-testing.yaml
