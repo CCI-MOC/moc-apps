@@ -5,6 +5,7 @@ resources:
 
   - ../../base/core/namespaces/cs6620-fall21-deployverticalpod
   - ../../base/core/namespaces/gpu-operator-resources
+  - ../../base/core/namespaces/koku-metrics-operator
   - ../../base/core/namespaces/moc-projects
   - ../../base/core/namespaces/openshift-nfd
   - ../../base/nvidia.com/clusterpolicy/gpu-cluster-policy
