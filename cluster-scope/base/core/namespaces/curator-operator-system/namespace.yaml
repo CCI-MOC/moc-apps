@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: curator-operator-system
+  annotations:
+    openshift.io/display-name: We need to deploy curator-operator in curator-operator-system
+spec: {}
