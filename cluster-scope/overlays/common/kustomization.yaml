@@ -16,6 +16,7 @@ resources:
   - ../../bundles/cert-manager
   - ../../bundles/external-secrets
   - ../../bundles/image-registry
+  - ../../bundles/koku-metrics-operator
 
   - machineconfigs/99-master-ssh.yaml
   - machineconfigs/99-worker-ssh.yaml
