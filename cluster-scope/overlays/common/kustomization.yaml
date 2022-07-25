@@ -14,6 +14,7 @@ resources:
   - ../../base/user.openshift.io/groups/cluster-readers
   - ../../base/user.openshift.io/groups/local-cluster-admins
   - ../../bundles/cert-manager
+  - ../../bundles/curator-operator-system
   - ../../bundles/external-secrets
   - ../../bundles/image-registry
   - ../../bundles/koku-metrics-operator
