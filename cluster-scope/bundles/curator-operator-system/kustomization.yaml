@@ -2,6 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/curatorconfig.curatoroperator.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curatoroperator.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/reports.api.curatoroperator.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curatoroperator.io
   - ../../base/core/namespaces/curator-operator-system
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-manager-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-oauth-proxy-rb
