@@ -4,7 +4,6 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
-  creationTimestamp: null
   name: reports.curator.operatefirst.io
 spec:
   group: curator.operatefirst.io
@@ -64,13 +63,13 @@ spec:
                 type: string
               emailReports:
                 description: If email has to be sent then this value should be set
-                  to true
+                  to true otherwise false
                 type: boolean
               emailUser:
-                description: Sender email address which will be used as a mail address
+                description: Sender email address which will be used as a mail address to send reports
                 type: string
               reportFrequency:
-                description: Frequency of the report generation
+                description: Frequency of the report generation which is either day,week or month
                 type: string
             type: object
           status:

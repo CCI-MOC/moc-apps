@@ -2,12 +2,18 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../base/apiextensions.k8s.io/customresourcedefinitions/curatorconfig.curatoroperator.io
-  - ../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curatoroperator.io
-  - ../../base/apiextensions.k8s.io/customresourcedefinitions/reports.api.curatoroperator.io
-  - ../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curatoroperator.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/curatorconfigs.curator.operatefirst.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/fetchdata.curator.operatefirst.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/reportapis.curator.operatefirst.io
+  - ../../base/apiextensions.k8s.io/customresourcedefinitions/reports.curator.operatefirst.io
   - ../../base/core/namespaces/curator-operator-system
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-manager-rb
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/curator-operator-oauth-proxy-rb
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-auth-proxy-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-fetchdata-viewer-role
   - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-manager-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-api-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-api-viewer-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-editor-role
+  - ../../base/rbac.authorization.k8s.io/clusterroles/curator-operator-report-viewer-role
