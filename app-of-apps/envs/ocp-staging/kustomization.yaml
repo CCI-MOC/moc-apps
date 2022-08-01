@@ -8,5 +8,6 @@ resources:
 - metallb
 - netbox
 - volsync
+- acct-mgt
 
 nameSuffix: -ocp-staging
