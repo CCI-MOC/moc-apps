@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: coldfront
+spec:
+  destination:
+    name: coldfront
+    namespace: coldfront
+  project: mocops
+  source:
+    path: coldfront/overlays/ocp-staging
+    repoURL: https://github.com/CCI-MOC/moc-apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true
