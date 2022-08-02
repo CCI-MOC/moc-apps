@@ -6,4 +6,3 @@ metadata:
     kustomize.config.k8s.io/behavior: replace
 users:
   - mhaley@redhat.com
-  - lmcgann@redhat.com
