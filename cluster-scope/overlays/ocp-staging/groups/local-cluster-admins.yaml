@@ -1,8 +1,0 @@
-apiVersion: user.openshift.io/v1
-kind: Group
-metadata:
-  name: local-cluster-admins
-  annotations:
-    kustomize.config.k8s.io/behavior: replace
-users:
-  - mhaley@redhat.com

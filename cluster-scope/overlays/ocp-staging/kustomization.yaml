@@ -26,7 +26,6 @@ resources:
 patches:
   - path: apiservers/cluster_patch.yaml
   - path: oauths/cluster_patch.yaml
-  - path: groups/local-cluster-admins.yaml
 
   - target:
       kind: ClusterIssuer
