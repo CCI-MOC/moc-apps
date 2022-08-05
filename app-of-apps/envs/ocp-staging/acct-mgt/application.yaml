@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: acct-mgt
+spec:
+  destination:
+    name: ocp-staging
+    namespace: acct-mgt
+  project: mocops
+  source:
+    path: acct-mgt/overlays/ocp-staging
+    repoURL: https://github.com/CCI-MOC/moc-apps.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - Validate=false
+    - ApplyOutOfSyncOnly=true
