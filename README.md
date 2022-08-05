@@ -60,3 +60,19 @@ chmod 755 .git/hooks/pre-push
 
 This will run `kustomize build` on all overlays and validate the
 output using `kubeval` prior to each push.
+
+## Deploying Secrets
+
+Secrets for both `ocp-staging` and `ocp-prod` are stored in AWS Secret Manager
+and accessed on the cluster via `ExternalSecret`. AWS Credentials for the
+`mocops` user can be found in BitWarden.
+
+- Login to AWS and navigate to Secret Manager.
+- Select `Store a New Secret` and select `Other type of secret`.
+- Input the value under the plain text tab. Keep the default encryption key.
+- The name of the secret should be `cluster/<cluster_name>/<namespace>/<secret_name>`.
+- Under tags, Add `cluster` as key and the name of the cluster as `value`.
+  The secret will not be accessible otherwise.
+- Create a `.yaml` manifest for the `ExternalSecret`. See [example][].
+
+[example]: https://github.com/CCI-MOC/moc-apps/blob/52400857a5c6cd70c491749116143ad8f3a85648/acct-mgt/overlays/ocp-staging/externalsecrets.yaml
