@@ -3,10 +3,6 @@ kind: Deployment
 metadata:
   name: coldfront-deployment
 spec:
-  selector:
-    matchLabels:
-      app: coldfront
-      coldfront-deployment: coldfront-app
   template:
     spec:
       containers:

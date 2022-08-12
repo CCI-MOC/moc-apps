@@ -3,10 +3,6 @@ kind: Deployment
 metadata:
   name: coldfront-qcluster-deployment
 spec:
-  selector:
-    matchLabels:
-      app: coldfront
-      coldfront-qcluster-deployment: coldfront-app
   template:
     spec:
       containers:
