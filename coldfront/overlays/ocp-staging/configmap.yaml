@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coldfront-configmap
+data:
+  DEBUG: "False"
+  DATABASE_ENGINE: 'django.db.backends.postgresql'
+  PLUGIN_AUTH_OIDC: "True"
+  PLUGIN_MOKEY: "True"
+  OIDC_RP_SIGN_ALGO: RS256
+  OIDC_RP_SCOPES: "openid email profile"
+  OIDC_OP_AUTHORIZATION_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/auth"
+  OIDC_OP_TOKEN_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/token"
+  OIDC_OP_USER_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/userinfo"
+  OIDC_OP_JWKS_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-tesing/openid-connect/certs"
+  OIDC_AUTHENTICATION_CALLBACK_URL: "https://coldfront-coldfront.apps.ocp-staging.massopen.cloud/oidc/callback/"
+  KEYCLOAK_URL: 'https://sso.massopen.cloud'
+  KEYCLOAK_REALM: 'moc-testing'
+  FORWARDED_ALLOW_IPS: '*'
+  REDIS_HOST: 'coldfront-redis'
+  CENTER_NAME: "MOC Staging"
+  CENTER_BASE_URL: "https://TODO"
+  CENTER_HELP_URL: "https://github.com/cci-moc"

@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coldfront-deployment
+spec:
+  template:
+    spec:
+      containers:
+        - name: coldfront
+          image: ghcr.io/nerc-project/coldfront-nerc:main
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: coldfront-configmap
+            - secretRef:
+                name: coldfront-secrets
+          env:
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: host
+                  optional: false
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: port
+                  optional: false
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: dbname
+                  optional: false
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: user
+                  optional: false
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: password
+                  optional: false
+      initContainers:
+        - name: init-myservice
+          image: ghcr.io/nerc-project/coldfront-nerc:main
+          command: ["python", "-m", "django initial_setup; python -m django register_cloud_attributes"]
+          envFrom:
+            - configMapRef:
+                name: coldfront-configmap
+            - secretRef:
+                name: coldfront-secrets
+          env:
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: host
+                  optional: false
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: port
+                  optional: false
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: dbname
+                  optional: false
+            - name: DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: user
+                  optional: false
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: coldfront-database-pguser-coldfront
+                  key: password
+                  optional: false
