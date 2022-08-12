@@ -9,5 +9,6 @@ resources:
 - netbox
 - volsync
 - acct-mgt
+- coldfront
 
 nameSuffix: -ocp-staging
