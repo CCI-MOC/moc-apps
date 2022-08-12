@@ -4,7 +4,7 @@ metadata:
   name: coldfront
 spec:
   destination:
-    name: coldfront
+    name: ocp-staging
     namespace: coldfront
   project: mocops
   source:
