@@ -6,7 +6,7 @@
 : ${SCHEMA_LOCATION:=https://raw.githubusercontent.com/CCI-MOC/openshift-schemas/master/schemas/}
 
 find_overlays() {
-    find * -type f -regex '.*/overlays/.*/kustomization.yaml' -printf '%h\n'
+    find * -type f -regex '.*/overlays/.*/kustomization.yaml' -exec dirname {} \;
 }
 
 okay() {
