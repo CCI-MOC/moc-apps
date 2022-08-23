@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: ocp-staging
-    namespace: coldfront
+    namespace: open-cluster-management-agent
   project: mocops
   source:
     path: coldfront/overlays/ocp-staging
