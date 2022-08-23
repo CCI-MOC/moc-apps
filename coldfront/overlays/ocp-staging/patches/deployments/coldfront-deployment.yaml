@@ -7,10 +7,6 @@ spec:
     spec:
       containers:
         - name: coldfront
-          image: ghcr.io/nerc-project/coldfront-nerc:main
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: coldfront-configmap
