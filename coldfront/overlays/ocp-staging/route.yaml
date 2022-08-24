@@ -3,10 +3,27 @@ kind: Route
 metadata:
   name: coldfront
 spec:
+  host: coldfront-coldfront.apps.ocp-staging.massopen.cloud
+  path: "/"
   port:
     targetPort: http
   to:
     kind: Service
     name: coldfront
+  tls:
+    termination: edge
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: coldfront-static
+spec:
+  host: coldfront-coldfront.apps.ocp-staging.massopen.cloud
+  path: "/static"
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: coldfront-static-files
   tls:
     termination: edge
