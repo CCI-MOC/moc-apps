@@ -24,6 +24,8 @@ spec:
       name: moc-testing
       openID:
         claims:
+          id:
+          - preferred_username
           email:
           - email
           name:
