@@ -12,7 +12,7 @@ data:
   OIDC_OP_AUTHORIZATION_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/auth"
   OIDC_OP_TOKEN_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/token"
   OIDC_OP_USER_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/userinfo"
-  OIDC_OP_JWKS_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-tesing/openid-connect/certs"
+  OIDC_OP_JWKS_ENDPOINT: "https://sso.massopen.cloud/auth/realms/moc-testing/protocol/openid-connect/certs"
   OIDC_AUTHENTICATION_CALLBACK_URL: "https://coldfront-coldfront.apps.ocp-staging.massopen.cloud/oidc/callback/"
   KEYCLOAK_URL: 'https://sso.massopen.cloud'
   KEYCLOAK_REALM: 'moc-testing'
