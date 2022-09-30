@@ -34,6 +34,7 @@ resources:
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
   - quota/chris-store
+  - quota/chris-public
   - quota/vr2-fall2021-virtualrose2021
   - quota/summer2022-virtualrose
   - quota/thesis-mosayyebzadeh
