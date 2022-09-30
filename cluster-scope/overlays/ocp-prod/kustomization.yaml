@@ -33,6 +33,7 @@ resources:
   - hyperconverged/kubevirt-hyperconverged.yaml
   - nodefeaturediscoveries/node-feature-discovery.yaml
   - nodenetworkconfigurationpolicies/ceph-client-network.yaml
+  - quota/bu-chris-fall2022
   - quota/chris-store
   - quota/chris-public
   - quota/vr2-fall2021-virtualrose2021
